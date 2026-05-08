@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Arrid Club – Meeting Schedule</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sand: #F2E6C9;
+    --parchment: #EDD9A3;
+    --terracotta: #C0562A;
+    --rust: #A03E1A;
+    --deep: #2C1A0E;
+    --sage: #6B7F5E;
+    --sky: #7BAEC4;
+    --gold: #D4A843;
+    --cream: #FAF5EA;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--cream);
+    color: var(--deep);
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    min-height: 100vh;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(160deg, var(--deep) 0%, #5C2E0A 60%, var(--terracotta) 100%);
+    padding: 3rem 1.5rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 80%, rgba(212,168,67,0.18) 0%, transparent 70%),
+                radial-gradient(ellipse at 20% 20%, rgba(123,174,196,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-deco {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.85;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 7vw, 3.8rem);
+    font-weight: 900;
+    color: var(--parchment);
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  }
+  .hero h1 span {
+    color: var(--gold);
+  }
+  .hero-sub {
+    color: var(--sand);
+    font-size: 1rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-top: 0.6rem;
+    font-weight: 300;
+  }
+  .hero-address {
+    margin-top: 1.2rem;
+    color: var(--parchment);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+  .hero-address a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  /* HOURS BANNER */
+  .hours-section {
+    background: var(--terracotta);
+    padding: 1.5rem 1.5rem;
+    color: var(--cream);
+  }
+  .hours-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.08em;
+    color: var(--parchment);
+  }
+  .hours-note {
+    text-align: center;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(250,245,234,0.65);
+    margin-bottom: 1rem;
+    font-weight: 300;
+  }
+  .hours-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .hours-card {
+    flex: 0 0 calc(25% - 0.45rem);
+  }
+  .hours-card:nth-child(5),
+  .hours-card:nth-child(6),
+  .hours-card:nth-child(7) {
+    flex: 0 0 calc(25% - 0.45rem);
+    margin-left: calc(12.5% - 0.225rem);
+  }
+  .hours-card:nth-child(6),
+  .hours-card:nth-child(7) {
+    margin-left: 0;
+  }
+  .hours-card {
+    background: rgba(0,0,0,0.18);
+    border-radius: 8px;
+    padding: 0.65rem 0.75rem;
+  }
+  .hours-day {
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--parchment);
+    margin-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding-bottom: 0.3rem;
+  }
+  .hours-window {
+    font-size: 0.76rem;
+    font-weight: 300;
+    color: rgba(250,245,234,0.88);
+    padding: 0.18rem 0;
+    line-height: 1.4;
+  }
+  .hours-window + .hours-window {
+    border-top: 1px dashed rgba(255,255,255,0.12);
+  }
+
+  /* RULES STRIP */
+  .rules-strip {
+    background: var(--deep);
+    color: var(--sand);
+    text-align: center;
+    padding: 0.6rem 1rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* MAIN SCHEDULE */
+  .schedule-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem 3rem;
+  }
+
+  .schedule-container > h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    text-align: center;
+    color: var(--rust);
+    margin-bottom: 1.8rem;
+    letter-spacing: 0.05em;
+  }
+
+  .day-block {
+    margin-bottom: 1.6rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(44,26,14,0.10);
+  }
+  .day-header {
+    background: var(--deep);
+    color: var(--parchment);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 0.65rem 1.1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .day-header .day-icon { font-size: 1rem; opacity: 0.7; }
+
+  .meetings-list {
+    background: white;
+  }
+  .meeting-row {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    align-items: center;
+    padding: 0.7rem 1.1rem;
+    border-bottom: 1px solid rgba(44,26,14,0.07);
+    gap: 0.75rem;
+    transition: background 0.15s;
+  }
+  .meeting-row:last-child { border-bottom: none; }
+  .meeting-row:hover { background: var(--cream); }
+
+  .meeting-time {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--terracotta);
+    white-space: nowrap;
+  }
+  .meeting-name {
+    font-size: 1.05rem;
+    color: var(--deep);
+    font-weight: 700;
+  }
+  .meeting-name .note {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--sage);
+    font-style: italic;
+    margin-top: 1px;
+  }
+  .meeting-badges {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 20px;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+  }
+  .badge-aa { background: #D4EAF5; color: #1A5A7A; }
+  .badge-na { background: #D5ECD5; color: #2A6B2A; }
+  .badge-afa { background: #F5E8D0; color: #8A5A10; }
+  .badge-bs { background: #EDD5E8; color: #6A2A60; }
+  .badge-w  { background: #FCE4D6; color: #A03E1A; }
+
+  /* LEGEND */
+  .legend {
+    max-width: 900px;
+    margin: 0 auto 2rem;
+    padding: 0 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.78rem;
+    color: var(--deep);
+  }
+
+  /* MISSION */
+  .mission {
+    background: linear-gradient(135deg, var(--deep), #3D2210);
+    color: var(--sand);
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+  .mission h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .mission p {
+    max-width: 620px;
+    margin: 0 auto;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    font-weight: 300;
+    opacity: 0.9;
+  }
+  .mission-est {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  /* DIVIDER */
+  .sun-divider {
+    text-align: center;
+    font-size: 1.4rem;
+    padding: 0.4rem;
+    color: var(--gold);
+    background: var(--cream);
+  }
+
+  @media (max-width: 480px) {
+    .meeting-row {
+      grid-template-columns: 70px 1fr;
+      grid-template-rows: auto auto;
+    }
+    .meeting-badges {
+      grid-column: 2;
+      justify-content: flex-start;
+    }
+    .hours-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-deco">🐪</div>
+  <h1>The <span>Arrid</span> Club</h1>
+  <div class="hero-sub">Weekly Meeting Schedule — Hemet, CA</div>
+  <div class="hero-address">
+    <a href="https://maps.google.com/?q=120+S+Harvard+St+Hemet+CA+92543" target="_blank">
+      📍 120 S. Harvard St, Hemet, CA 92543
+    </a>
+  </div>
+</div>
+
+<!-- CLUB HOURS -->
+<div class="hours-section">
+  <h2>Club Hours</h2>
+  <p class="hours-note">Doors are locked between meeting windows</p>
+  <div class="hours-grid">
+
+    <div class="hours-card">
+      <div class="hours-day">Monday</div>
+      <div class="hours-window">5:15 am – 8:15 am</div>
+      <div class="hours-window">11:45 am – 1:15 pm</div>
+      <div class="hours-window">3:45 pm – 8:15 pm</div>
+    </div>
+
+    <div class="hours-card">
+      <div class="hours-day">Tuesday</div>
+      <div class="hours-window">5:15 am – 8:30 am</div>
+      <div class="hours-window">11:45 am – 1:15 pm</div>
+      <div class="hours-window">3:45 pm – 6:15 pm</div>
+    </div>
+
+    <div class="hours-card">
+      <div class="hours-day">Wednesday</div>
+      <div class="hours-window">5:15 am – 8:30 am</div>
+      <div class="hours-window">11:45 am – 1:15 pm</div>
+      <div class="hours-window">3:45 pm – 8:15 pm</div>
+    </div>
+
+    <div class="hours-card">
+      <div class="hours-day">Thursday</div>
+      <div class="hours-window">5:15 am – 8:30 am</div>
+      <div class="hours-window">11:45 am – 1:15 pm</div>
+      <div class="hours-window">3:45 pm – 6:15 pm</div>
+    </div>
+
+    <div class="hours-card">
+      <div class="hours-day">Friday</div>
+      <div class="hours-window">5:15 am – 8:30 am</div>
+      <div class="hours-window">11:45 am – 1:15 pm</div>
+      <div class="hours-window">3:45 pm – 8:30 pm</div>
+    </div>
+
+    <div class="hours-card">
+      <div class="hours-day">Saturday</div>
+      <div class="hours-window">5:15 am – 8:30 am</div>
+      <div class="hours-window">11:45 am – 1:15 pm</div>
+      <div class="hours-window">3:45 pm – 10:30 pm</div>
+    </div>
+
+    <div class="hours-card">
+      <div class="hours-day">Sunday</div>
+      <div class="hours-window">5:15 am – 8:30 am</div>
+      <div class="hours-window">9:45 am – 1:15 pm</div>
+      <div class="hours-window">3:45 pm – 6:45 pm</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- RULES -->
+<div class="rules-strip">
+  No pets &nbsp;·&nbsp; Service animals only &nbsp;·&nbsp; No weapons, alcohol, drugs or paraphernalia
+</div>
+
+<!-- SCHEDULE -->
+<div class="schedule-container">
+  <h2>Weekly Meetings</h2>
+
+  <!-- MONDAY -->
+  <div class="day-block">
+    <div class="day-header"><span class="day-icon">☀️</span> Monday</div>
+    <div class="meetings-list">
+      <div class="meeting-row">
+        <span class="meeting-time">6:00 AM</span>
+        <span class="meeting-name">It's All About Me<span class="note">No attendance cards signed</span></span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">7:00 AM</span>
+        <span class="meeting-name">Attitude Adjustment</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">12:00 PM</span>
+        <span class="meeting-name">High Nooners</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">12:00 PM</span>
+        <span class="meeting-name">From the Streets</span>
+        <div class="meeting-badges"><span class="badge badge-na">NA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">4:00 PM</span>
+        <span class="meeting-name">Principles of Recovery</span>
+        <div class="meeting-badges"><span class="badge badge-na">NA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">5:15 PM</span>
+        <span class="meeting-name">Highway Happy Hour</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">6:30 PM</span>
+        <span class="meeting-name">Mensajeros de Recupercion<span class="note">Spanish</span></span>
+        <div class="meeting-badges"><span class="badge badge-na">NA</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TUESDAY -->
+  <div class="day-block">
+    <div class="day-header"><span class="day-icon">🌵</span> Tuesday</div>
+    <div class="meetings-list">
+      <div class="meeting-row">
+        <span class="meeting-time">6:00 AM</span>
+        <span class="meeting-name">It's All About Me<span class="note">No attendance cards signed</span></span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">7:00 AM</span>
+        <span class="meeting-name">Attitude Adjustment</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">12:00 PM</span>
+        <span class="meeting-name">High Nooners</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">12:00 PM</span>
+        <span class="meeting-name">From the Streets</span>
+        <div class="meeting-badges"><span class="badge badge-na">NA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">4:00 PM</span>
+        <span class="meeting-name">Principles of Recovery</span>
+        <div class="meeting-badges"><span class="badge badge-na">NA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">5:15 PM</span>
+        <span class="meeting-name">Highway Happy Hour</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">6:30 PM</span>
+        <span class="meeting-name">Rainbow Recovery Group</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span><span class="badge badge-na">NA</span><span class="badge badge-afa">AFA</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEDNESDAY -->
+  <div class="day-block">
+    <div class="day-header"><span class="day-icon">🏜️</span> Wednesday</div>
+    <div class="meetings-list">
+      <div class="meeting-row">
+        <span class="meeting-time">6:00 AM</span>
+        <span class="meeting-name">It's All About Me<span class="note">No attendance cards signed</span></span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">7:00 AM</span>
+        <span class="meeting-name">Attitude Adjustment</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">12:00 PM</span>
+        <span class="meeting-name">High Nooners</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">12:00 PM</span>
+        <span class="meeting-name">From the Streets</span>
+        <div class="meeting-badges"><span class="badge badge-na">NA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">4:00 PM</span>
+        <span class="meeting-name">Traditions Participation</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">4:00 PM</span>
+        <span class="meeting-name">Principles of Recovery</span>
+        <div class="meeting-badges"><span class="badge badge-na">NA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">5:15 PM</span>
+        <span class="meeting-name">Highway Happy Hour</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">6:30 PM</span>
+        <span class="meeting-name">Mensajeros de Recupercion<span class="note">Spanish</span></span>
+        <div class="meeting-badges"><span class="badge badge-na">NA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">7:00 PM</span>
+        <span class="meeting-name">District 14<span class="note">3rd Wednesday of Month</span></span>
+        <div class="meeting-badges"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THURSDAY -->
+  <div class="day-block">
+    <div class="day-header"><span class="day-icon">🌄</span> Thursday</div>
+    <div class="meetings-list">
+      <div class="meeting-row">
+        <span class="meeting-time">6:00 AM</span>
+        <span class="meeting-name">It's All About Me<span class="note">No attendance cards signed</span></span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">7:00 AM</span>
+        <span class="meeting-name">Attitude Adjustment</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">12:00 PM</span>
+        <span class="meeting-name">High Nooners</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">12:00 PM</span>
+        <span class="meeting-name">From the Streets</span>
+        <div class="meeting-badges"><span class="badge badge-na">NA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">4:00 PM</span>
+        <span class="meeting-name">Principles of Recovery</span>
+        <div class="meeting-badges"><span class="badge badge-na">NA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">5:15 PM</span>
+        <span class="meeting-name">Highway Happy Hour</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRIDAY -->
+  <div class="day-block">
+    <div class="day-header"><span class="day-icon">🌅</span> Friday</div>
+    <div class="meetings-list">
+      <div class="meeting-row">
+        <span class="meeting-time">6:00 AM</span>
+        <span class="meeting-name">It's All About Me<span class="note">No attendance cards signed</span></span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">7:00 AM</span>
+        <span class="meeting-name">Attitude Adjustment</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">12:00 PM</span>
+        <span class="meeting-name">High Nooners</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">12:00 PM</span>
+        <span class="meeting-name">From the Streets</span>
+        <div class="meeting-badges"><span class="badge badge-na">NA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">4:00 PM</span>
+        <span class="meeting-name">Principles of Recovery</span>
+        <div class="meeting-badges"><span class="badge badge-na">NA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">5:15 PM</span>
+        <span class="meeting-name">Highway Happy Hour</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">6:30 PM</span>
+        <span class="meeting-name">Mensajeros de Recupercion<span class="note">Spanish</span></span>
+        <div class="meeting-badges"><span class="badge badge-na">NA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">7:00 PM</span>
+        <span class="meeting-name">Candlelight Meeting</span>
+        <div class="meeting-badges"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SATURDAY -->
+  <div class="day-block">
+    <div class="day-header"><span class="day-icon">✨</span> Saturday</div>
+    <div class="meetings-list">
+      <div class="meeting-row">
+        <span class="meeting-time">6:00 AM</span>
+        <span class="meeting-name">It's All About Me<span class="note">No attendance cards signed</span></span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">7:00 AM</span>
+        <span class="meeting-name">Attitude Adjustment</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">7:00 AM</span>
+        <span class="meeting-name">Back to the Book</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span><span class="badge badge-bs">BS</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">12:00 PM</span>
+        <span class="meeting-name">High Nooners</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">12:00 PM</span>
+        <span class="meeting-name">From the Streets</span>
+        <div class="meeting-badges"><span class="badge badge-na">NA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">4:00 PM</span>
+        <span class="meeting-name">Principles of Recovery</span>
+        <div class="meeting-badges"><span class="badge badge-na">NA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">5:15 PM</span>
+        <span class="meeting-name">Highway Happy Hour</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">6:30 PM</span>
+        <span class="meeting-name">Rainbow Recovery Group</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span><span class="badge badge-na">NA</span><span class="badge badge-afa">AFA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">9:00 PM</span>
+        <span class="meeting-name">Night Owls</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUNDAY -->
+  <div class="day-block">
+    <div class="day-header"><span class="day-icon">🌞</span> Sunday</div>
+    <div class="meetings-list">
+      <div class="meeting-row">
+        <span class="meeting-time">6:00 AM</span>
+        <span class="meeting-name">It's All About Me<span class="note">No attendance cards signed</span></span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">7:00 AM</span>
+        <span class="meeting-name">Attitude Adjustment</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">10:30 AM</span>
+        <span class="meeting-name">Speaker Meeting</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">12:00 PM</span>
+        <span class="meeting-name">From the Streets</span>
+        <div class="meeting-badges"><span class="badge badge-na">NA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">4:00 PM</span>
+        <span class="meeting-name">Principles of Recovery</span>
+        <div class="meeting-badges"><span class="badge badge-na">NA</span></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">5:00 PM</span>
+        <span class="meeting-name">Arrid Club Board Meeting<span class="note">1st Sunday of Month</span></span>
+        <div class="meeting-badges"></div>
+      </div>
+      <div class="meeting-row">
+        <span class="meeting-time">5:30 PM</span>
+        <span class="meeting-name">Sugar &amp; Spice</span>
+        <div class="meeting-badges"><span class="badge badge-aa">AA</span><span class="badge badge-w">W</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <div class="legend-item"><span class="badge badge-aa">AA</span> Alcoholics Anonymous — Open Meeting</div>
+    <div class="legend-item"><span class="badge badge-na">NA</span> Narcotics Anonymous — Open Meeting</div>
+    <div class="legend-item"><span class="badge badge-afa">AFA</span> All Fellowship Attending</div>
+    <div class="legend-item"><span class="badge badge-bs">BS</span> Big Book Study</div>
+    <div class="legend-item"><span class="badge badge-w">W</span> Women's Meeting</div>
+  </div>
+
+</div>
+
+<!-- MISSION -->
+<div class="mission">
+  <h3>Mission Statement</h3>
+  <p>The Arrid Club is a non-profit corporation whose primary purpose is to provide and maintain a facility for its members and other attendees of 12-step programs so they may hold meetings and host social and recreational events.</p>
+  <div class="mission-est">Serving the San Jacinto Valley since June 20, 1973</div>
+</div>
+
+</body>
+</html>
