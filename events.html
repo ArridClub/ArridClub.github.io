@@ -50,9 +50,17 @@
     margin-bottom: 1.5rem;
   }
   .event-types-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
+    justify-content: center;
+  }
+  .event-type-card {
+    flex: 0 0 calc(25% - 0.75rem);
+  }
+  .event-type-card:nth-child(5),
+  .event-type-card:nth-child(6) {
+    flex: 0 0 calc(25% - 0.75rem);
   }
   .event-type-card {
     background: white;
