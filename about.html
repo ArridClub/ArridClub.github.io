@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About – The Arrid Club</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ABOUT-SPECIFIC STYLES */
+
+  .about-container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+
+  /* Mission block */
+  .mission-block {
+    background: white;
+    border-radius: 14px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 2px 12px rgba(44,26,14,0.08);
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--gold);
+  }
+  .mission-block h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--rust);
+    margin-bottom: 1rem;
+  }
+  .mission-block p {
+    font-size: 0.97rem;
+    line-height: 1.8;
+    color: #4a3020;
+    font-weight: 300;
+  }
+
+  /* Stats row */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .stat-card {
+    background: var(--terracotta);
+    border-radius: 12px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    color: var(--parchment);
+  }
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.4rem;
+    font-weight: 300;
+    opacity: 0.85;
+  }
+
+  /* Info blocks */
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  .info-block {
+    background: white;
+    border-radius: 12px;
+    padding: 1.8rem 1.5rem;
+    box-shadow: 0 2px 8px rgba(44,26,14,0.07);
+  }
+  .info-block h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--rust);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .info-block p, .info-block li {
+    font-size: 0.9rem;
+    color: #5a4030;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .info-block ul {
+    list-style: none;
+    padding: 0;
+  }
+  .info-block ul li {
+    padding: 0.2rem 0;
+    border-bottom: 1px solid rgba(44,26,14,0.06);
+  }
+  .info-block ul li:last-child { border-bottom: none; }
+  .info-block ul li::before {
+    content: '·';
+    color: var(--gold);
+    font-weight: 700;
+    margin-right: 0.5rem;
+  }
+
+  /* Rules block */
+  .rules-block {
+    background: var(--deep);
+    border-radius: 14px;
+    padding: 2rem 2rem;
+    color: var(--sand);
+    margin-bottom: 2rem;
+  }
+  .rules-block h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .rules-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+  }
+  .rules-list li {
+    background: rgba(255,255,255,0.08);
+    border-radius: 30px;
+    padding: 0.4rem 1.1rem;
+    font-size: 0.83rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--parchment);
+  }
+
+  @media (max-width: 560px) {
+    .info-grid { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-logo">🐪 The <span>Arrid</span> Club</div>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="meetings.html">Meetings</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="deco">🏡</div>
+  <h1>About the <span>Arrid Club</span></h1>
+  <div class="hero-sub">A Home for Recovery Since 1973</div>
+</div>
+
+<!-- CONTENT -->
+<div class="about-container">
+
+  <!-- Mission -->
+  <div class="mission-block">
+    <h2>Our Mission</h2>
+    <p>The Arrid Club is a non-profit corporation whose primary purpose is to provide and maintain a facility for its members and other attendees of 12-step programs so they may hold meetings and host social and recreational events. We are committed to supporting the recovery community of the San Jacinto Valley with a safe, welcoming, and accessible space every day of the week.</p>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-number">1973</div>
+      <div class="stat-label">Year Founded</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">50+</div>
+      <div class="stat-label">Years of Service</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">7</div>
+      <div class="stat-label">Days a Week</div>
+    </div>
+  </div>
+
+  <!-- Info grid -->
+  <div class="info-grid">
+    <div class="info-block">
+      <h3>🏛️ Our History</h3>
+      <p>The Arrid Club has been serving the San Jacinto Valley since June 20, 1973. For over five decades, we have provided a home for the recovery community — a place where those seeking sobriety can find fellowship, support, and hope.</p>
+    </div>
+    <div class="info-block">
+      <h3>🤝 Who We Serve</h3>
+      <p>Our doors are open to members of Alcoholics Anonymous, Narcotics Anonymous, and all 12-step programs. We welcome anyone who is committed to recovery, regardless of where they are on their journey.</p>
+    </div>
+    <div class="info-block">
+      <h3>📅 Meetings &amp; Events</h3>
+      <p>We host AA and NA meetings daily starting at 6:00 AM, as well as monthly social and recreational events including breakfasts, dances, golf outings, BBQs, and workshops for our members and the broader community.</p>
+    </div>
+    <div class="info-block">
+      <h3>🙌 Get Involved</h3>
+      <ul>
+        <li>Attend a meeting</li>
+        <li>Become a member</li>
+        <li>Volunteer to help staff the club</li>
+        <li>Participate in club events</li>
+        <li>Support the recovery community</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Rules -->
+  <div class="rules-block">
+    <h2>Club Rules</h2>
+    <ul class="rules-list">
+      <li>🚫 No pets</li>
+      <li>✅ Service animals only</li>
+      <li>🚫 No weapons</li>
+      <li>🚫 No alcohol</li>
+      <li>🚫 No drugs or paraphernalia</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-logo">The <span>Arrid</span> Club</div>
+  <div class="footer-address">120 S. Harvard St, Hemet, CA 92543</div>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="meetings.html">Meetings</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-copy">Arrid Club California © 2026 · Serving the San Jacinto Valley since 1973</div>
+</footer>
+
+</body>
+</html>
