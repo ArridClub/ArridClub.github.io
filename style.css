@@ -1,0 +1,253 @@
+/* ===========================
+   ARRID CLUB — SHARED STYLES
+   =========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@300;400;600;700&display=swap');
+
+:root {
+  --sand:       #F2E6C9;
+  --parchment:  #EDD9A3;
+  --terracotta: #C0562A;
+  --rust:       #A03E1A;
+  --deep:       #2C1A0E;
+  --sage:       #6B7F5E;
+  --palm:       #4A7C59;
+  --palm-light: #D4E8DA;
+  --sky:        #7BAEC4;
+  --gold:       #D4A843;
+  --cream:      #FAF5EA;
+  --mid:        #5C2E0A;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--cream);
+  color: var(--deep);
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 400;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main { flex: 1; }
+
+a { color: inherit; text-decoration: none; }
+
+/* ===========================
+   NAVIGATION
+   =========================== */
+
+.site-nav {
+  background: var(--deep);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+.nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  height: 60px;
+}
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--parchment);
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav-logo span { color: var(--gold); }
+
+.nav-links {
+  display: flex;
+  gap: 0.25rem;
+  list-style: none;
+}
+
+.nav-links a {
+  display: block;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c8a97a;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--parchment);
+  background: rgba(255,255,255,0.08);
+}
+.nav-links a.active {
+  color: #7EC896;
+}
+
+/* Mobile nav toggle */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--parchment);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+@media (max-width: 600px) {
+  .nav-toggle { display: flex; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0; right: 0;
+    background: var(--deep);
+    flex-direction: column;
+    padding: 1rem 1.5rem 1.5rem;
+    gap: 0.25rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { font-size: 0.95rem; padding: 0.6rem 0.5rem; }
+}
+
+/* ===========================
+   PAGE HERO (shared)
+   =========================== */
+
+.page-hero {
+  background: linear-gradient(160deg, var(--deep) 0%, var(--mid) 60%, var(--terracotta) 100%);
+  padding: 3.5rem 1.5rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 75% 80%, rgba(212,168,67,0.18) 0%, transparent 65%),
+    radial-gradient(ellipse at 20% 20%, rgba(74,124,89,0.15) 0%, transparent 55%);
+  pointer-events: none;
+}
+.page-hero .deco { font-size: 2.5rem; margin-bottom: 0.5rem; }
+.page-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  font-weight: 900;
+  color: var(--parchment);
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+}
+.page-hero h1 span { color: var(--gold); }
+.page-hero .hero-sub {
+  color: var(--sand);
+  font-size: 0.88rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-top: 0.6rem;
+  font-weight: 300;
+}
+
+/* Gold divider */
+.gold-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 1.2rem auto;
+}
+
+/* ===========================
+   FOOTER
+   =========================== */
+
+.site-footer {
+  background: linear-gradient(135deg, var(--deep), #3D2210);
+  color: var(--sand);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  margin-top: auto;
+}
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--parchment);
+  margin-bottom: 0.5rem;
+}
+.footer-logo span { color: var(--gold); }
+.footer-address {
+  font-size: 0.85rem;
+  font-weight: 300;
+  opacity: 0.7;
+  margin-bottom: 1rem;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin-bottom: 1.2rem;
+}
+.footer-links a {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c8a97a;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: #7EC896; }
+.footer-copy {
+  font-size: 0.72rem;
+  opacity: 0.4;
+  letter-spacing: 0.1em;
+}
+
+/* ===========================
+   UTILITY
+   =========================== */
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  color: var(--rust);
+  text-align: center;
+  margin-bottom: 0.4rem;
+}
+.section-title.green { color: #3A6B48; }
+.section-sub {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #8a6a4a;
+  margin-bottom: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
