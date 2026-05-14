@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Arrid Club – Hemet, CA</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* HOME-SPECIFIC STYLES */
+
+  /* Hero */
+  .home-hero {
+    background: linear-gradient(160deg, var(--deep) 0%, var(--mid) 55%, var(--terracotta) 100%);
+    padding: 1.5rem 1.5rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .home-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 75% 80%, rgba(212,168,67,0.18) 0%, transparent 65%),
+      radial-gradient(ellipse at 15% 60%, rgba(74,124,89,0.20) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 20%, rgba(74,124,89,0.12) 0%, transparent 45%);
+    pointer-events: none;
+  }
+  .home-hero .deco { font-size: 3.5rem; margin-bottom: 0.75rem; letter-spacing: 0.5rem; }
+  .home-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 8vw, 5rem);
+    font-weight: 900;
+    color: var(--parchment);
+    letter-spacing: 0.04em;
+    line-height: 1.05;
+    text-shadow: 0 3px 16px rgba(0,0,0,0.4);
+  }
+  .home-hero h1 span { color: var(--gold); }
+  .home-hero .hero-sub {
+    color: var(--sand);
+    font-size: 0.9rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    margin-top: 0.75rem;
+    font-weight: 300;
+  }
+  .home-hero .hero-est {
+    margin-top: 0.5rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(212,168,67,0.65);
+    font-weight: 300;
+  }
+  .hero-address {
+    margin-top: 1.5rem;
+    display: inline-block;
+    background: rgba(0,0,0,0.2);
+    border-radius: 30px;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--parchment);
+    letter-spacing: 0.05em;
+  }
+  .hero-address a { color: var(--gold); }
+
+  .hero-cta {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--deep);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.8rem;
+    border-radius: 30px;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--parchment); transform: translateY(-2px); }
+  .btn-secondary {
+    background: rgba(255,255,255,0.1);
+    color: var(--parchment);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.8rem;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.18); transform: translateY(-2px); }
+
+  /* Mission strip */
+  .mission-strip {
+    background: var(--terracotta);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+  }
+  .mission-strip blockquote {
+    max-width: 680px;
+    margin: 0 auto;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--parchment);
+    line-height: 1.7;
+  }
+  .mission-strip cite {
+    display: block;
+    margin-top: 0.8rem;
+    font-style: normal;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(237,217,163,0.55);
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  /* Cards section */
+  .cards-section { background: var(--cream); }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    margin-top: 2rem;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(44,26,14,0.08);
+    transition: transform 0.2s, box-shadow 0.2s, border-top 0.2s;
+    display: block;
+    border-top: 3px solid transparent;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(44,26,14,0.13);
+    border-top: 3px solid #4A7C59;
+  }
+  .card-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--rust);
+    margin-bottom: 0.5rem;
+  }
+  .card p {
+    font-size: 0.88rem;
+    color: #6a5040;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .card-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
+
+  /* About strip */
+  .about-strip {
+    background: linear-gradient(135deg, var(--deep) 0%, #1A3D28 100%);
+    padding: 3rem 1.5rem;
+    color: var(--sand);
+  }
+  .about-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .about-inner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .about-inner p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    font-weight: 300;
+    opacity: 0.85;
+    margin-bottom: 0.75rem;
+  }
+  .about-inner .btn-secondary { margin-top: 1rem; }
+
+  /* Rules strip */
+  .rules-strip {
+    background: var(--mid);
+    color: var(--sand);
+    text-align: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-logo">🐪 The <span>Arrid</span> Club</div>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="meetings.html">Meetings</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="home-hero">
+  <div class="deco">🌴🐪🌴</div>
+  <h1>The <span>Arrid</span> Club</h1>
+  <div class="hero-sub">Hemet, California</div>
+  <div class="hero-est">Serving the San Jacinto Valley since June 20, 1973</div>
+  <div class="hero-address">
+    📍 <a href="https://maps.google.com/?q=120+S+Harvard+St+Hemet+CA+92543" target="_blank">120 S. Harvard St, Hemet, CA 92543</a>
+  </div>
+  <div class="hero-cta">
+    <a href="meetings.html" class="btn-primary">View Meeting Schedule</a>
+    <a href="about.html" class="btn-secondary">About the Club</a>
+  </div>
+</div>
+
+
+<!-- ABOUT STRIP -->
+<div class="about-strip">
+  <div class="about-inner">
+    <h2>A Home for Recovery</h2>
+    <p>The Arrid Club has been a cornerstone of the San Jacinto Valley recovery community since June 20, 1973. We provide a safe, welcoming facility where members of Alcoholics Anonymous, Narcotics Anonymous, and other 12-step programs can gather, heal, and support one another.</p>
+    <p>Our doors are open every day of the week, with meetings starting as early as 6:00 AM. Whether you're new to recovery or have years of sobriety, you'll find a community here.</p>
+    <a href="about.html" class="btn-secondary">Read More About Us</a>
+  </div>
+</div>
+
+<!-- CARDS -->
+<section class="cards-section">
+  <div class="container">
+    <h2 class="section-title">Welcome to the Arrid Club</h2>
+    <p class="section-sub">Everything you need to know about our club and its meetings</p>
+    <div class="cards-grid">
+      <a href="meetings.html" class="card">
+        <div class="card-icon">📅</div>
+        <h3>Meetings</h3>
+        <p>AA and NA meetings held daily starting at 6:00 AM. Open to all who seek recovery.</p>
+        <span class="card-link">View Schedule →</span>
+      </a>
+      <a href="events.html" class="card">
+        <div class="card-icon">🎉</div>
+        <h3>Events</h3>
+        <p>Monthly events including breakfasts, dances, golf outings, BBQs, and workshops.</p>
+        <span class="card-link">See Events →</span>
+      </a>
+      <a href="about.html" class="card">
+        <div class="card-icon">🏡</div>
+        <h3>About</h3>
+        <p>Serving the San Jacinto Valley community since 1973. Learn about our history and facility.</p>
+        <span class="card-link">Learn More →</span>
+      </a>
+      <a href="contact.html" class="card">
+        <div class="card-icon">📍</div>
+        <h3>Find Us</h3>
+        <p>Located at 120 S. Harvard St in Hemet, CA. Come visit us — all are welcome.</p>
+        <span class="card-link">Get Directions →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<div class="mission-strip">
+  <blockquote>
+    "A non-profit corporation whose primary purpose is to provide and maintain a facility for its members and other attendees of 12-step programs so they may hold meetings and host social and recreational events."
+    <cite>— Mission Statement</cite>
+  </blockquote>
+</div>
+
+<!-- RULES -->
+<div class="rules-strip">
+  No pets &nbsp;·&nbsp; Service animals only &nbsp;·&nbsp; No weapons, alcohol, drugs or paraphernalia
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-logo">The <span>Arrid</span> Club</div>
+  <div class="footer-address">120 S. Harvard St, Hemet, CA 92543</div>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="meetings.html">Meetings</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://www.facebook.com/groups/1225924959475339" target="_blank">Facebook</a></li>
+  </ul>
+  <div class="footer-copy">Arrid Club California © 2026 · Serving the San Jacinto Valley since 1973</div>
+</footer>
+
+</body>
+</html>
