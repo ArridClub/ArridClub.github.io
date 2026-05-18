@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About – The Arrid Club</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Neon banner — full bleed, text below */
+  .neon-banner {
+    background: #0f0500;
+    width: 100%;
+  }
+  .neon-img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .neon-overlay {
+    padding: 2.5rem 2rem 3rem;
+    text-align: center;
+    background: #0f0500;
+  }
+  .neon-tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 3vw, 1.55rem);
+    font-weight: 900;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.9rem;
+    line-height: 1.2;
+  }
+  .neon-divider {
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto 1.2rem;
+  }
+  .neon-body {
+    font-size: clamp(0.88rem, 1.6vw, 1rem);
+    line-height: 1.85;
+    color: var(--sand);
+    font-weight: 300;
+    max-width: 580px;
+    margin: 0 auto;
+    opacity: 0.9;
+  }
+
+  .about-container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+
+  /* Prose sections */
+  .prose-section {
+    background: white;
+    border-radius: 14px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 2px 12px rgba(44,26,14,0.08);
+    margin-bottom: 1.8rem;
+  }
+  .prose-section.gold-accent  { border-left: 4px solid var(--gold); }
+  .prose-section.green-accent { border-left: 4px solid var(--palm); }
+  .prose-section.rust-accent  { border-left: 4px solid var(--terracotta); }
+
+  .prose-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    color: var(--rust);
+    margin-bottom: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .prose-section p {
+    font-size: 0.97rem;
+    line-height: 1.85;
+    color: #4a3020;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+  .prose-section p:last-child { margin-bottom: 0; }
+
+  /* Stats row */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+  }
+  .stat-card {
+    background: var(--terracotta);
+    border-radius: 12px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    color: var(--parchment);
+  }
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.4rem;
+    font-weight: 300;
+    opacity: 0.85;
+  }
+
+  /* Location trail - removed */
+
+  /* Guidelines teaser */
+  .guidelines-teaser {
+    background: var(--deep);
+    border-radius: 14px;
+    padding: 2.2rem 2rem;
+    margin-bottom: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .guidelines-teaser-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+  .guidelines-teaser-text p {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: var(--sand);
+    font-weight: 300;
+    opacity: 0.85;
+    max-width: 520px;
+  }
+  .guidelines-btn {
+    flex-shrink: 0;
+    display: inline-block;
+    background: var(--gold);
+    color: var(--deep);
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.7rem 1.4rem;
+    border-radius: 30px;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .guidelines-btn:hover { background: var(--parchment); }
+
+  @media (max-width: 620px) {
+    .guidelines-teaser { flex-direction: column; gap: 1.2rem; }
+  }
+
+  /* Events pills */
+  .events-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 1.1rem;
+  }
+  .events-pills span {
+    background: #F5E8D0;
+    color: #7a4a10;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.35rem 1rem;
+    border-radius: 30px;
+  }
+
+  /* Dark welcome block */
+  .welcome-block {
+    background: var(--deep);
+    border-radius: 14px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    margin-bottom: 1.8rem;
+    color: var(--sand);
+  }
+  .welcome-block h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .welcome-block p {
+    font-size: 0.97rem;
+    line-height: 1.85;
+    font-weight: 300;
+    opacity: 0.88;
+    margin-bottom: 0.9rem;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .welcome-block p:last-child { margin-bottom: 0; }
+  .welcome-block em {
+    color: var(--gold);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* Contact strip */
+  .contact-strip {
+    background: var(--terracotta);
+    border-radius: 14px;
+    padding: 1.8rem 2rem;
+    text-align: center;
+    color: var(--parchment);
+  }
+  .contact-strip h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+  .contact-strip p { font-size: 0.9rem; font-weight: 300; margin-bottom: 0.35rem; opacity: 0.9; }
+  .contact-strip a { color: var(--gold); font-weight: 600; }
+  .contact-strip a:hover { color: var(--parchment); }
+
+  @media (max-width: 560px) {
+    .stats-row { grid-template-columns: 1fr; }
+    .rules-full-list { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-logo">🐪 The <span>Arrid</span> Club</div>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="meetings.html">Meetings</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="guidelines.html">Guidelines</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="deco">🏡</div>
+  <h1>About the <span>Arrid Club</span></h1>
+  <div class="hero-sub">A Home for Recovery in the San Jacinto Valley</div>
+</div>
+
+<!-- NEON BANNER -->
+<div class="neon-banner">
+  <img src="cinematic_neon.png" alt="Unity · Service · Recovery neon sign" class="neon-img">
+  <div class="neon-overlay">
+    <div class="neon-tagline">UNITY &nbsp;•&nbsp; SERVICE &nbsp;•&nbsp; RECOVERY</div>
+    <div class="neon-divider"></div>
+    <p class="neon-body">For more than 50 years, the Arrid Club has grown alongside the recovery community of the San Jacinto Valley. From humble beginnings to becoming a place of fellowship, support, and connection, our story continues today.</p>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="about-container">
+
+  <!-- Stats -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-number">1970s</div>
+      <div class="stat-label">Founded</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">50+</div>
+      <div class="stat-label">Years of Service</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">7</div>
+      <div class="stat-label">Days a Week</div>
+    </div>
+  </div>
+
+  <!-- Our Mission -->
+  <div class="prose-section gold-accent">
+    <h2>🌟 Our Mission</h2>
+    <p>The Arrid Club is a non-profit organization dedicated to providing a safe, welcoming, and supportive environment for individuals participating in 12-Step recovery programs. Our purpose is to maintain a place where people can come together for meetings, fellowship, social activities, and community support.</p>
+    <p>For decades, the Arrid Club has served as a place where individuals in recovery can find encouragement, connection, and hope. Whether someone is attending their first meeting or celebrating years of sobriety, our doors remain open to all who seek recovery and community.</p>
+  </div>
+
+  <!-- Our History -->
+  <div class="prose-section green-accent">
+    <h2>🏛️ Our History</h2>
+    <p>The Arrid Club has been a part of the San Jacinto Valley recovery community since the early 1970s and has continued to evolve alongside the people it serves. Throughout the years, the club has called several locations home, beginning in a small former welding building near San Jacinto Street before relocating multiple times as the community grew.</p>
+    <p>From Main Street in San Jacinto to several additional locations throughout the valley, each move reflected one thing: growth. As more individuals found recovery and fellowship through the Arrid Club, the need for a larger and more permanent gathering place grew as well.</p>
+    <p>Today, the Arrid Club proudly serves the community from its home in Hemet, where it continues to provide a welcoming environment centered on recovery, fellowship, and support. More than just a building, the Arrid Club has become a place where friendships are formed, lives are changed, and countless people have found a sense of belonging.</p>
+  </div>
+
+  <!-- More Than Meetings -->
+  <div class="prose-section rust-accent">
+    <h2>☀️ More Than Meetings</h2>
+    <p>The Arrid Club offers more than a meeting space. Along with daily recovery meetings, the club hosts social and community events throughout the year including breakfasts, workshops, gatherings, and other activities designed to strengthen connections among members and visitors alike.</p>
+    <p>For many people, the Arrid Club has become a second home, a place filled with support, encouragement, laughter, and fellowship.</p>
+    <div class="events-pills">
+      <span>🍳 Breakfasts</span>
+      <span>💃 Dances</span>
+      <span>⛳ Golf Outings</span>
+      <span>🍖 BBQs</span>
+      <span>📚 Workshops</span>
+      <span>🤝 Social Gatherings</span>
+    </div>
+  </div>
+
+  <!-- A Place for Everyone -->
+  <div class="welcome-block">
+    <h2>A Place for Everyone</h2>
+    <p>Whether you're new to recovery, returning after time away, supporting a loved one, or simply looking for community, <em>you are welcome here.</em></p>
+    <p>Recovery begins with connection, and no one has to walk that journey alone.</p>
+  </div>
+
+  <!-- Guidelines teaser -->
+  <div class="guidelines-teaser">
+    <div class="guidelines-teaser-text">
+      <h2>📋 Club Guidelines</h2>
+      <p>The Arrid Club maintains a set of guidelines to ensure a safe, respectful, and welcoming environment for everyone. All members and guests are expected to follow these guidelines while on Club property.</p>
+    </div>
+    <a href="guidelines.html" class="guidelines-btn">View Club Guidelines →</a>
+  </div>
+
+  <!-- Contact -->
+  <div class="contact-strip">
+    <h3>Come Find Us</h3>
+    <p>📍 120 S Harvard St, Hemet, CA 92543</p>
+    <p>✉️ <a href="mailto:mail@arridclub.org">mail@arridclub.org</a></p>
+    <p style="margin-top: 0.75rem; font-size: 0.82rem; opacity: 0.75;">Right in the center of town. All are welcome.</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-logo">The <span>Arrid</span> Club</div>
+  <div class="footer-address">120 S. Harvard St, Hemet, CA 92543</div>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="meetings.html">Meetings</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="guidelines.html">Guidelines</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-copy">Arrid Club California © 2026 · Serving the San Jacinto Valley since the early 1970s</div>
+</footer>
+
+</body>
+</html>
