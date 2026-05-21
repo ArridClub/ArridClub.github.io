@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events – The Arrid Club</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* EVENTS-SPECIFIC STYLES */
+
+  .events-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+
+  /* Placeholder state */
+  .no-events {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(44,26,14,0.08);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .no-events .icon { font-size: 3.5rem; margin-bottom: 1rem; }
+  .no-events h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--rust);
+    margin-bottom: 0.75rem;
+  }
+  .no-events p {
+    font-size: 0.92rem;
+    color: #6a5040;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* Event types info */
+  .event-types {
+    margin-top: 3rem;
+  }
+  .event-types h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--rust);
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .event-types-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .event-type-card {
+    flex: 0 0 calc(25% - 0.75rem);
+  }
+  .event-type-card:nth-child(5),
+  .event-type-card:nth-child(6) {
+    flex: 0 0 calc(25% - 0.75rem);
+  }
+  .event-type-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(44,26,14,0.07);
+    border-top: 3px solid var(--gold);
+  }
+  .event-type-card .icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+  .event-type-card span {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--deep);
+    letter-spacing: 0.04em;
+  }
+
+  /* Live event card */
+  .events-list {
+    margin-bottom: 2rem;
+  }
+  .event-card {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(44,26,14,0.10);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+  }
+  .event-date-block {
+    background: var(--terracotta);
+    color: var(--parchment);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+  .event-month {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.8;
+  }
+  .event-day {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--gold);
+  }
+  .event-year {
+    font-size: 0.75rem;
+    font-weight: 300;
+    opacity: 0.7;
+    margin-top: 0.2rem;
+  }
+  .event-details {
+    padding: 1.5rem 1.8rem;
+  }
+  .event-tag {
+    display: inline-block;
+    background: #F5E8D0;
+    color: #8A5A10;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin-bottom: 0.6rem;
+  }
+  .event-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--rust);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+  .event-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-bottom: 0.75rem;
+  }
+  .event-meta span {
+    font-size: 0.88rem;
+    color: #5a4030;
+    font-weight: 400;
+  }
+  .event-meta span strong {
+    color: var(--deep);
+    font-weight: 600;
+  }
+  .event-desc {
+    font-size: 0.88rem;
+    color: #6a5040;
+    line-height: 1.6;
+    font-weight: 300;
+    border-top: 1px solid rgba(44,26,14,0.08);
+    padding-top: 0.75rem;
+    margin-top: 0.25rem;
+  }
+
+  @media (max-width: 560px) {
+    .event-card { grid-template-columns: 1fr; }
+    .event-date-block { flex-direction: row; gap: 0.5rem; padding: 1rem 1.5rem; justify-content: flex-start; }
+    .event-day { font-size: 2rem; }
+  }
+
+  /* Check back strip */
+  .check-back {
+    background: var(--terracotta);
+    color: var(--parchment);
+    text-align: center;
+    padding: 2rem 1.5rem;
+    margin-top: 3rem;
+    border-radius: 12px;
+  }
+  .check-back h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  .check-back p {
+    font-size: 0.88rem;
+    font-weight: 300;
+    opacity: 0.85;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-logo">🐪 The <span>Arrid</span> Club</div>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="meetings.html">Meetings</a></li>
+      <li><a href="events.html" class="active">Events</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="deco">🎉</div>
+  <h1>Club <span>Events</span></h1>
+  <div class="hero-sub">Breakfasts · Dances · Golf · BBQs · Workshops</div>
+</div>
+
+<!-- CONTENT -->
+<div class="events-container">
+
+  <!-- Upcoming events -->
+  <div class="events-list">
+    <h2 class="section-title">Upcoming Events</h2>
+    <p class="section-sub">Join us for these upcoming club events</p>
+
+    <div class="event-card">
+      <div class="event-date-block">
+        <div class="event-month">June</div>
+        <div class="event-day">14</div>
+        <div class="event-year">2026</div>
+      </div>
+      <div class="event-details">
+        <span class="event-tag">🍳 Fundraiser</span>
+        <div class="event-title">Pancake Wake Building Fundraiser</div>
+        <div class="event-meta">
+          <span>🕗 <strong>Time:</strong> 8:00 AM</span>
+          <span>📍 <strong>Where:</strong> 120 S. Harvard Street, Hemet, CA</span>
+          <span>💵 <strong>Cost:</strong> $7</span>
+        </div>
+        <div class="event-desc">$7 gets you 3 pancakes, scrambled eggs, sausage patty, and coffee or juice. Come out and support the club!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- What kinds of events -->
+  <div class="event-types">
+    <h3>The Kinds of Events We Host</h3>
+    <div class="event-types-grid">
+      <div class="event-type-card">
+        <div class="icon">🍳</div>
+        <span>Breakfasts</span>
+      </div>
+      <div class="event-type-card">
+        <div class="icon">💃</div>
+        <span>Dances</span>
+      </div>
+      <div class="event-type-card">
+        <div class="icon">⛳</div>
+        <span>Golf Outings</span>
+      </div>
+      <div class="event-type-card">
+        <div class="icon">🍖</div>
+        <span>BBQs</span>
+      </div>
+      <div class="event-type-card">
+        <div class="icon">📚</div>
+        <span>Workshops</span>
+      </div>
+      <div class="event-type-card">
+        <div class="icon">🤝</div>
+        <span>Social Events</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Check back -->
+  <div class="check-back">
+    <h3>Stay Connected</h3>
+    <p>Event details will be posted here as they become available. Stop by the club or ask a member for the latest schedule.</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-logo">The <span>Arrid</span> Club</div>
+  <div class="footer-address">120 S. Harvard St, Hemet, CA 92543</div>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="meetings.html">Meetings</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://www.facebook.com/groups/1225924959475339" target="_blank">Facebook</a></li>
+  </ul>
+  <div class="footer-copy">Arrid Club California © 2026 · Serving the San Jacinto Valley since 1973</div>
+</footer>
+
+</body>
+</html>
