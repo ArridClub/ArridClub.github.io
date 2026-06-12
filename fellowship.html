@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fellowship – The Arrid Club | Hemet, CA</title>
+<meta name="description" content="We Are Not A Glum Lot — Fellowship, friendship, and fun at the Arrid Club in Hemet, CA. Recovery is more than meetings. See what life in the recovery community looks like.">
+<meta name="keywords" content="Arrid Club fellowship, recovery community Hemet, sober fun, AA fellowship, 12 step social, recovery lifestyle San Jacinto Valley">
+<meta name="author" content="The Arrid Club">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arridclub.com/fellowship.html">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arridclub.com/fellowship.html">
+<meta property="og:title" content="Fellowship – The Arrid Club | Hemet, CA">
+<meta property="og:description" content="We Are Not A Glum Lot — Recovery is more than meetings. It's friendship, laughter, service, and community.">
+<meta property="og:site_name" content="The Arrid Club">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* FELLOWSHIP PAGE STYLES */
+
+  .fellowship-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+
+  /* Intro block */
+  .fellowship-intro {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 3rem auto;
+  }
+  .fellowship-intro p {
+    font-size: 1.05rem;
+    color: #5a4030;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  /* Activity cards grid */
+  .activity-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+  }
+  .activity-card {
+    background: white;
+    border-radius: 14px;
+    padding: 2rem 1.25rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(44,26,14,0.08);
+    border-top: 4px solid var(--gold);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .activity-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(44,26,14,0.13);
+  }
+  .activity-card .act-icon {
+    font-size: 2.6rem;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+  .activity-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--rust);
+    margin-bottom: 0.5rem;
+  }
+  .activity-card p {
+    font-size: 0.84rem;
+    color: #6a5040;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* Quote section */
+  .quote-section {
+    background: var(--terracotta);
+    border-radius: 16px;
+    padding: 3rem 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  .quote-section .section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+  .quote-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    text-align: left;
+  }
+  .quote-card {
+    background: rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 1.5rem;
+    border-left: 3px solid var(--gold);
+  }
+  .quote-card blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--parchment);
+    font-style: italic;
+    line-height: 1.7;
+    margin: 0 0 0.75rem 0;
+  }
+  .quote-card cite {
+    font-size: 0.75rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    font-style: normal;
+  }
+
+  /* Photo gallery placeholder */
+  .gallery-section {
+    margin-bottom: 3rem;
+  }
+  .gallery-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--rust);
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  .gallery-section .section-sub {
+    text-align: center;
+    font-size: 0.88rem;
+    color: #7a6050;
+    margin-bottom: 1.75rem;
+    font-weight: 300;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .gallery-placeholder {
+    background: #f5ede0;
+    border-radius: 12px;
+    aspect-ratio: 4/3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #c9a87a;
+    color: #a07850;
+    gap: 0.5rem;
+    transition: background 0.2s;
+  }
+  .gallery-placeholder:hover {
+    background: #ede0cc;
+  }
+  .gallery-placeholder .ph-icon {
+    font-size: 2rem;
+    opacity: 0.6;
+  }
+  .gallery-placeholder span {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-align: center;
+    padding: 0 0.5rem;
+    opacity: 0.75;
+  }
+  .gallery-coming-soon {
+    text-align: center;
+    margin-top: 1.25rem;
+    font-size: 0.85rem;
+    color: #7a6050;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  /* Anonymity note */
+  .anonymity-note {
+    background: #faf5ee;
+    border-left: 4px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 3rem;
+    font-size: 0.85rem;
+    color: #5a4030;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .anonymity-note strong {
+    color: var(--deep);
+    font-weight: 700;
+  }
+
+  /* More than meetings strip */
+  .more-than {
+    background: var(--deep);
+    color: var(--parchment);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .more-than h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .more-than p {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    font-weight: 300;
+    max-width: 620px;
+    margin: 0 auto 1.5rem;
+    opacity: 0.9;
+  }
+  .more-than a.btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--deep);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.7rem 1.8rem;
+    border-radius: 30px;
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: opacity 0.2s;
+  }
+  .more-than a.btn:hover { opacity: 0.85; }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    .activity-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .quote-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .activity-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-logo">🐪 The <span>Arrid</span> Club</div>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="meetings.html">Meetings</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="fellowship.html" class="active">Fellowship</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="guidelines.html">Guidelines</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="deco">🤝</div>
+  <h1>We Are Not <span>A Glum Lot</span></h1>
+  <div class="hero-sub">Friendship · Laughter · Service · Community</div>
+</div>
+
+<!-- CONTENT -->
+<div class="fellowship-container">
+
+  <!-- Intro -->
+  <div class="fellowship-intro">
+    <p>One of the biggest misconceptions about recovery is that getting sober means giving up fun. At the Arrid Club, we know better. Recovery opens the door to real friendships, genuine laughter, and a community that shows up for each other — not just in meetings, but in life.</p>
+  </div>
+
+  <!-- Activity cards -->
+  <h2 class="section-title">Life at the Arrid Club</h2>
+  <p class="section-sub" style="text-align:center; margin-bottom:1.75rem;">Here's a taste of what fellowship looks like around here</p>
+
+  <div class="activity-grid">
+    <div class="activity-card">
+      <span class="act-icon">🍳</span>
+      <h3>Pancake Breakfasts</h3>
+      <p>Saturday morning fundraisers with good food, strong coffee, and even better conversation. A favorite tradition.</p>
+    </div>
+    <div class="activity-card">
+      <span class="act-icon">🍖</span>
+      <h3>BBQs</h3>
+      <p>Backyard-style gatherings with food, lawn games, and the kind of easy fellowship that reminds you why you got sober.</p>
+    </div>
+    <div class="activity-card">
+      <span class="act-icon">💃</span>
+      <h3>Dances</h3>
+      <p>Sober dances with live music or a DJ — proof that you don't need a drink to have a great time on the dance floor.</p>
+    </div>
+    <div class="activity-card">
+      <span class="act-icon">⛳</span>
+      <h3>Golf Outings</h3>
+      <p>Casual rounds for all skill levels. Less about the score, more about spending a few hours outside with good people.</p>
+    </div>
+    <div class="activity-card">
+      <span class="act-icon">🎂</span>
+      <h3>Anniversary Celebrations</h3>
+      <p>We celebrate sobriety milestones together — from 30 days to 30 years — because every day sober is worth honoring.</p>
+    </div>
+    <div class="activity-card">
+      <span class="act-icon">🎄</span>
+      <h3>Holiday Gatherings</h3>
+      <p>Nobody should spend the holidays alone. Our holiday events are open to all and full of warmth, food, and fellowship.</p>
+    </div>
+    <div class="activity-card">
+      <span class="act-icon">🏕️</span>
+      <h3>Campouts</h3>
+      <p>Recovery under the stars. Campfire meetings, fresh air, and a reminder that the natural world is worth being sober for.</p>
+    </div>
+    <div class="activity-card">
+      <span class="act-icon">🛠️</span>
+      <h3>Club Workdays</h3>
+      <p>Pitching in to keep the club running. Service is a cornerstone of recovery, and there's something deeply satisfying about working alongside others.</p>
+    </div>
+    <div class="activity-card">
+      <span class="act-icon">🎤</span>
+      <h3>Speaker Events</h3>
+      <p>Inspiring shares from people who've been through it. Some funny, some moving, all honest — and a great place to bring newcomers.</p>
+    </div>
+  </div>
+
+  <!-- Quotes -->
+  <div class="quote-section">
+    <span class="section-label">Words That Resonate</span>
+    <div class="quote-grid">
+      <div class="quote-card">
+        <blockquote>"We are not a glum lot. If newcomers could see no joy or fun in our existence, they might not want what we have."</blockquote>
+        <cite>— Alcoholics Anonymous, The Big Book</cite>
+      </div>
+      <div class="quote-card">
+        <blockquote>"The joy of living is the theme of A.A.'s Twelfth Step, and action is its keyword."</blockquote>
+        <cite>— Twelve Steps and Twelve Traditions</cite>
+      </div>
+      <div class="quote-card">
+        <blockquote>"I used to think I needed alcohol to have fun. Sobriety showed me I just needed the right people."</blockquote>
+        <cite>— Arrid Club Member</cite>
+      </div>
+      <div class="quote-card">
+        <blockquote>"Recovery gave me back my life. Fellowship gave me a reason to live it fully."</blockquote>
+        <cite>— Arrid Club Member</cite>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photo gallery placeholders -->
+  <div class="gallery-section">
+    <h2>Fellowship in Action</h2>
+    <p class="section-sub">Photos shared with the knowledge and permission of those pictured</p>
+    <div class="gallery-grid">
+      <div class="gallery-placeholder">
+        <span class="ph-icon">🍳</span>
+        <span>Pancake Breakfast</span>
+      </div>
+      <div class="gallery-placeholder">
+        <span class="ph-icon">🎂</span>
+        <span>Anniversary Night</span>
+      </div>
+      <div class="gallery-placeholder">
+        <span class="ph-icon">🍖</span>
+        <span>Summer BBQ</span>
+      </div>
+      <div class="gallery-placeholder">
+        <span class="ph-icon">⛳</span>
+        <span>Golf Outing</span>
+      </div>
+      <div class="gallery-placeholder">
+        <span class="ph-icon">💃</span>
+        <span>Sober Dance</span>
+      </div>
+      <div class="gallery-placeholder">
+        <span class="ph-icon">🎄</span>
+        <span>Holiday Party</span>
+      </div>
+    </div>
+    <p class="gallery-coming-soon">📸 Photos coming soon — check back after our next event!</p>
+  </div>
+
+  <!-- Anonymity note -->
+  <div class="anonymity-note">
+    <strong>A note on anonymity:</strong> Photos on this page are shared with the knowledge and full permission of those pictured. We respect the principles of anonymity and never publish photographs without consent. Not everyone who participates in fellowship activities chooses to be photographed, and we fully respect that choice.
+  </div>
+
+  <!-- More than meetings CTA -->
+  <div class="more-than">
+    <h2>More Than Meetings</h2>
+    <p>Recovery is about more than attending meetings. Through fellowship, service, and shared experiences, we build friendships and create a community that supports lasting sobriety. You don't have to do this alone — and you don't have to do it without joy.</p>
+    <a href="events.html" class="btn">See Upcoming Events</a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-logo">The <span>Arrid</span> Club</div>
+  <div class="footer-address">120 S. Harvard St, Hemet, CA 92543</div>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="meetings.html">Meetings</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="fellowship.html">Fellowship</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="guidelines.html">Guidelines</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://www.facebook.com/groups/1225924959475339" target="_blank">Facebook</a></li>
+  </ul>
+  <div class="footer-copy">Arrid Club California © 2026 · Serving the San Jacinto Valley since 1973</div>
+</footer>
+
+</body>
+</html>
