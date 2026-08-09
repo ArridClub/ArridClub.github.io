@@ -69,7 +69,6 @@
 
   @media (max-width: 768px) {
     .neon-img {
-      content: url('cinematic-neon-portrait.webp');
       aspect-ratio: 3 / 4;
       object-position: center 85%;
     }
@@ -361,7 +360,10 @@
 
 <!-- NEON BANNER -->
 <div class="neon-banner">
-  <img src="cinematic-neon.webp" alt="Unity · Service · Recovery neon sign" class="neon-img" width="1672" height="941">
+  <picture>
+    <source media="(max-width: 768px)" srcset="cinematic-neon-portrait.webp">
+    <img src="cinematic-neon.webp" alt="Unity · Service · Recovery neon sign" class="neon-img" width="1672" height="941">
+  </picture>
   <div class="neon-overlay">
     <div class="neon-tagline">UNITY &nbsp;•&nbsp; SERVICE &nbsp;•&nbsp; RECOVERY</div>
     <div class="neon-divider"></div>
