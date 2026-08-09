@@ -153,11 +153,16 @@
   }
   .carousel-slide {
     min-width: 100%;
+    position: relative;
+    padding-top: 133.33%;
   }
   .carousel-slide img {
     display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    aspect-ratio: 3 / 4;
+    height: 100%;
     object-fit: cover;
     object-position: center;
   }
