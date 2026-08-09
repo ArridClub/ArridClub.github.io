@@ -257,12 +257,16 @@
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 2px 12px rgba(44,26,14,0.10);
-    min-width: 0;
+    position: relative;
+    padding-top: 133.33%;
   }
   .inside-card img {
     display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    aspect-ratio: 3 / 4;
+    height: 100%;
     object-fit: cover;
     object-position: center;
     transition: transform 0.3s ease;
