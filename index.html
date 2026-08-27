@@ -15,6 +15,34 @@
 <meta property="og:title" content="The Arrid Club – Hemet, CA">
 <meta property="og:description" content="A non-profit recovery community facility serving the San Jacinto Valley since 1973. Daily AA and NA meetings, events, and fellowship at 120 S. Harvard St, Hemet, CA.">
 <meta property="og:site_name" content="The Arrid Club">
+<meta property="og:image" content="https://arridclub.com/sunset-background.webp">
+<meta property="og:image:alt" content="Sunset over the San Jacinto Valley behind The Arrid Club welcome message">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Arrid Club – Hemet, CA">
+<meta name="twitter:description" content="Daily AA and NA meetings, events, and fellowship serving the San Jacinto Valley since 1973.">
+<meta name="twitter:image" content="https://arridclub.com/sunset-background.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E🐪%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NonprofitOrganization",
+  "name": "The Arrid Club",
+  "url": "https://arridclub.com/",
+  "foundingDate": "1973-06-20",
+  "description": "A non-profit recovery community facility serving the San Jacinto Valley with daily AA and NA meetings, events, and fellowship.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "120 S. Harvard St.",
+    "addressLocality": "Hemet",
+    "addressRegion": "CA",
+    "postalCode": "92543",
+    "addressCountry": "US"
+  },
+  "sameAs": [
+    "https://www.facebook.com/groups/1225924959475339"
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@300;400;600;700&display=optional" rel="stylesheet">
@@ -74,20 +102,22 @@
   }
   .home-hero h1 span { color: var(--gold); }
   .home-hero .hero-sub {
-    color: var(--sand);
+    color: #fff4d6;
     font-size: 0.88rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     margin-top: 0.5rem;
-    font-weight: 300;
+    font-weight: 400;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
   }
   .home-hero .hero-est {
     margin-top: 0.35rem;
     font-size: 0.76rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: rgba(212,168,67,0.65);
-    font-weight: 300;
+    color: #f2d98f;
+    font-weight: 400;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.85);
   }
   .hero-address {
     margin-top: 1rem;
@@ -280,14 +310,16 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
 <!-- NAV -->
-<nav class="site-nav">
+<nav class="site-nav" aria-label="Primary navigation">
   <div class="nav-inner">
     <div class="nav-logo">🐪 The <span>Arrid</span> Club</div>
-    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+    <button class="nav-toggle" onclick="const links=document.querySelector('.nav-links'); const isOpen=links.classList.toggle('open'); this.setAttribute('aria-expanded', isOpen)" aria-label="Open navigation menu" aria-controls="primary-nav-links" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
-    <ul class="nav-links">
+    <ul class="nav-links" id="primary-nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="meetings.html">Meetings</a></li>
       <li><a href="events.html">Events</a></li>
@@ -299,6 +331,8 @@
   </div>
 </nav>
 
+<main id="main-content">
+
 <!-- HERO -->
 <div class="home-hero">
   <div class="deco">🌴🐪🌴</div>
@@ -306,11 +340,12 @@
   <div class="hero-sub">Hemet, California</div>
   <div class="hero-est">Serving the San Jacinto Valley since June 20, 1973</div>
   <div class="hero-address">
-    📍 <a href="https://maps.google.com/?q=120+S+Harvard+St+Hemet+CA+92543" target="_blank">120 S. Harvard St, Hemet, CA 92543</a>
+    <a href="https://maps.google.com/?q=120+S+Harvard+St+Hemet+CA+92543" target="_blank" rel="noopener noreferrer" aria-label="Get directions to The Arrid Club at 120 South Harvard Street">📍 Get Directions · 120 S. Harvard St.</a>
   </div>
   <div class="hero-cta">
     <a href="meetings.html" class="btn-primary">View Meeting Schedule</a>
     <a href="about.html" class="btn-secondary">About the Club</a>
+    <a href="meetings.html#today-meetings" class="btn-secondary">Today's Meetings</a>
   </div>
 </div>
 
@@ -386,6 +421,8 @@
   </blockquote>
 </div>
 
+</main>
+
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-logo">The <span>Arrid</span> Club</div>
@@ -398,7 +435,7 @@
     <li><a href="about.html">About</a></li>
     <li><a href="guidelines.html">Guidelines</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li><a href="https://www.facebook.com/groups/1225924959475339" target="_blank">Facebook</a></li>
+    <li><a href="https://www.facebook.com/groups/1225924959475339" target="_blank" rel="noopener noreferrer">Facebook</a></li>
   </ul>
   <div class="footer-copy">Arrid Club California © 2026 · Serving the San Jacinto Valley since 1973</div>
 </footer>
