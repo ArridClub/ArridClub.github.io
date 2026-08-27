@@ -16,6 +16,86 @@
 <meta property="og:description" content="Upcoming events at the Arrid Club in Hemet, CA: pancake breakfasts, dances, golf outings, BBQs, and more. Open to the recovery community.">
 <meta property="og:site_name" content="The Arrid Club">
 <meta property="og:image" content="https://arridclub.com/FreewaySpkrMtg102326.webp">
+<meta property="og:image:alt" content="Flyer for the AA Speaker Meeting and Barbecue Fellowship">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Events – The Arrid Club | Hemet, CA">
+<meta name="twitter:description" content="Upcoming recovery-community events in and around Hemet, California.">
+<meta name="twitter:image" content="https://arridclub.com/FreewaySpkrMtg102326.webp">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Event",
+      "name": "Arrid Club Extravaganza Fundraiser",
+      "startDate": "2026-09-13T11:00:00-07:00",
+      "endDate": "2026-09-13T15:00:00-07:00",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "Golden Era Golf Course",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "19871 Gilman Springs Rd.",
+          "addressLocality": "Gilman Springs",
+          "addressRegion": "CA",
+          "addressCountry": "US"
+        }
+      },
+      "description": "An Arrid Club fundraiser with food, a cornhole tournament, a water slide, snow cones, a 50/50 raffle, and music by DJ Willie Hammond.",
+      "organizer": { "@type": "Organization", "name": "The Arrid Club", "url": "https://arridclub.com/" },
+      "url": "https://arridclub.com/events.html"
+    },
+    {
+      "@type": "Event",
+      "name": "AA Speaker Meeting & Barbecue Fellowship",
+      "startDate": "2026-10-23T17:00:00-07:00",
+      "endDate": "2026-10-23T19:00:00-07:00",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "Presbyterian Church",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "515 E. Kimball Ave.",
+          "addressLocality": "Hemet",
+          "addressRegion": "CA",
+          "addressCountry": "US"
+        }
+      },
+      "description": "A speaker meeting featuring Charlie L. and Bob Bollman, followed by barbecue and fellowship.",
+      "image": "https://arridclub.com/FreewaySpkrMtg102326.webp",
+      "organizer": { "@type": "Organization", "name": "Freeway Group" },
+      "url": "https://arridclub.com/events.html"
+    },
+    {
+      "@type": "Event",
+      "name": "Ice Cream Social & Tradition Play",
+      "startDate": "2026-11-14T14:00:00-08:00",
+      "endDate": "2026-11-14T16:00:00-08:00",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "Unity Valley Church",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "140 N. Buena Vista St.",
+          "addressLocality": "Hemet",
+          "addressRegion": "CA",
+          "postalCode": "92543",
+          "addressCountry": "US"
+        }
+      },
+      "description": "An ice cream social and tradition play presented by District 14.",
+      "organizer": { "@type": "Organization", "name": "District 14" },
+      "url": "https://arridclub.com/events.html"
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@300;400;600;700&display=optional" rel="stylesheet">
@@ -253,6 +333,43 @@
     padding-top: 0.75rem;
     margin-top: 0.25rem;
   }
+  .event-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 0.9rem;
+  }
+  .event-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(160,62,26,0.35);
+    border-radius: 20px;
+    padding: 0.42rem 0.85rem;
+    color: var(--rust);
+    background: var(--cream);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .event-action:hover,
+  .event-action:focus-visible {
+    background: var(--rust);
+    color: white;
+    border-color: var(--rust);
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
 
   @media (max-width: 560px) {
     .event-card { grid-template-columns: 1fr; }
@@ -320,6 +437,23 @@
     font-weight: 300;
     opacity: 0.85;
   }
+  .facebook-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 0.55rem 1.1rem;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 24px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    transition: background 0.2s;
+  }
+  .facebook-action:hover,
+  .facebook-action:focus-visible { background: rgba(255,255,255,0.2); }
 </style>
 </head>
 <body>
@@ -373,6 +507,9 @@
           <span>💵 <strong>Cost:</strong> Adults $15 · Children under 12 $5</span>
         </div>
         <div class="event-desc">Hot dogs &amp; hamburgers with sides of baked beans and coleslaw, plus a drink. Activities include a cornhole tournament, a water slide for kids, snow cones, and a 50/50 raffle with tickets available for a chance to win prizes. Music by DJ Willie Hammond. This is a fundraiser for the Arrid Club. Come out and support!</div>
+        <div class="event-actions">
+          <a class="event-action" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Arrid+Club+Extravaganza+Fundraiser&amp;dates=20260913T110000%2F20260913T150000&amp;ctz=America%2FLos_Angeles&amp;details=Food%2C+cornhole%2C+a+water+slide%2C+snow+cones%2C+a+50%2F50+raffle%2C+and+music+by+DJ+Willie+Hammond.&amp;location=Golden+Era+Golf+Course%2C+19871+Gilman+Springs+Rd.%2C+Gilman+Springs%2C+CA" target="_blank" rel="noopener noreferrer">📅 Add to Calendar</a>
+        </div>
       </div>
     </div>
     <div class="event-card">
@@ -392,8 +529,11 @@
             <span>☎️ <strong>Info:</strong> Byron – <a class="event-link" href="tel:+19514567270">(951) 456-7270</a> · Brian – <a class="event-link" href="tel:+19145520408">(914) 552-0408</a></span>
           </div>
           <div class="event-desc">Presented by the Freeway Group. Join us for a speaker meeting featuring Charlie L. as the 10-minute speaker and Bob Bollman as the 45-minute main speaker. Come hear their experience, strength, and hope, then stay for a barbecue with side dishes and refreshments. Street parking is available, with additional parking at the elementary school across from the church. Everyone is welcome!</div>
+          <div class="event-actions">
+            <a class="event-action" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=AA+Speaker+Meeting+%26+Barbecue+Fellowship&amp;dates=20261023T170000%2F20261023T190000&amp;ctz=America%2FLos_Angeles&amp;details=Speaker+meeting+featuring+Charlie+L.+and+Bob+Bollman%2C+followed+by+barbecue+and+fellowship.&amp;location=Presbyterian+Church%2C+515+E.+Kimball+Ave.%2C+Hemet%2C+CA" target="_blank" rel="noopener noreferrer">📅 Add to Calendar</a>
+          </div>
         </div>
-        <button class="event-flyer-link" type="button" onclick="document.getElementById('freeway-flyer').showModal()" aria-label="View the full AA Speaker Meeting and Barbecue Fellowship flyer">
+        <button class="event-flyer-link" type="button" onclick="openFlyer(this)" aria-label="View the full AA Speaker Meeting and Barbecue Fellowship flyer">
           <img class="event-flyer-thumb" src="FreewaySpkrMtg102326.webp" alt="Flyer for the AA Speaker Meeting and Barbecue Fellowship on October 23, 2026" loading="lazy" decoding="async" width="1024" height="1536">
           View Full Event Flyer
         </button>
@@ -414,6 +554,9 @@
           <span>☎️ <strong>Info:</strong> John – <a class="event-link" href="tel:+19092085580">(909) 208-5580</a></span>
         </div>
         <div class="event-desc">Presented by District 14. Join us for ice cream and a show!</div>
+        <div class="event-actions">
+          <a class="event-action" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Ice+Cream+Social+%26+Tradition+Play&amp;dates=20261114T140000%2F20261114T160000&amp;ctz=America%2FLos_Angeles&amp;details=Ice+cream+social+and+tradition+play+presented+by+District+14.&amp;location=Unity+Valley+Church%2C+140+N.+Buena+Vista+St.%2C+Hemet%2C+CA+92543" target="_blank" rel="noopener noreferrer">📅 Add to Calendar</a>
+        </div>
       </div>
     </div>
   </div>
@@ -492,12 +635,15 @@
   <div class="check-back">
     <h3>Stay Connected</h3>
     <p>Event details will be posted here as they become available. Stop by the club or ask a member for the latest schedule.</p>
+    <a class="facebook-action" href="https://www.facebook.com/groups/1225924959475339" target="_blank" rel="noopener noreferrer">Follow Us on Facebook</a>
   </div>
 
 </div>
 
-<dialog class="flyer-dialog" id="freeway-flyer" aria-label="AA Speaker Meeting and Barbecue Fellowship event flyer" onclick="if (event.target === this) this.close()">
-  <button class="flyer-dialog-close" type="button" onclick="document.getElementById('freeway-flyer').close()" aria-label="Close flyer">×</button>
+<dialog class="flyer-dialog" id="freeway-flyer" aria-labelledby="flyer-dialog-title" aria-describedby="flyer-dialog-description" onclick="if (event.target === this) closeFlyer()">
+  <h2 class="sr-only" id="flyer-dialog-title">AA Speaker Meeting and Barbecue Fellowship event flyer</h2>
+  <p class="sr-only" id="flyer-dialog-description">Full-size event flyer for October 23, 2026.</p>
+  <button class="flyer-dialog-close" id="flyer-dialog-close" type="button" onclick="closeFlyer()" aria-label="Close flyer">×</button>
   <img src="FreewaySpkrMtg102326.webp" alt="Full flyer for the AA Speaker Meeting and Barbecue Fellowship on October 23, 2026" width="1024" height="1536">
 </dialog>
 
@@ -517,6 +663,25 @@
   </ul>
   <div class="footer-copy">Arrid Club California © 2026 · Serving the San Jacinto Valley since 1973</div>
 </footer>
+
+<script>
+  let flyerTrigger = null;
+  const flyerDialog = document.getElementById('freeway-flyer');
+
+  function openFlyer(trigger) {
+    flyerTrigger = trigger;
+    flyerDialog.showModal();
+    requestAnimationFrame(() => document.getElementById('flyer-dialog-close').focus());
+  }
+
+  function closeFlyer() {
+    flyerDialog.close();
+  }
+
+  flyerDialog.addEventListener('close', () => {
+    if (flyerTrigger) flyerTrigger.focus();
+  });
+</script>
 
 </body>
 </html>
