@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact & Directions – The Arrid Club | Hemet, CA</title>
-<meta name="description" content="Find the Arrid Club at 120 S. Harvard St, Hemet, CA 92543. Get directions, view hours, and learn what to expect when you visit. All are welcome.">
+<meta name="description" content="Find the Arrid Club at 120 S. Harvard St, Hemet, CA 92543. Get directions, view hours, email contact@arridclub.com, and learn what to expect when you visit. All are welcome.">
 <meta name="keywords" content="Arrid Club address, Arrid Club directions, 120 S Harvard Street Hemet, AA meeting location Hemet, find recovery meeting Hemet CA, San Jacinto Valley 12 step">
 <meta name="author" content="The Arrid Club">
 <meta name="robots" content="index, follow">
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://arridclub.com/contact.html">
 <meta property="og:title" content="Find Us – The Arrid Club | 120 S. Harvard St, Hemet, CA">
-<meta property="og:description" content="The Arrid Club is located at 120 S. Harvard St, Hemet, CA 92543. Meetings are held every day of the week. Get directions and learn what to expect on your first visit.">
+<meta property="og:description" content="The Arrid Club is located at 120 S. Harvard St, Hemet, CA 92543. Meetings are held every day of the week. Get directions, email contact@arridclub.com, and learn what to expect on your first visit.">
 <meta property="og:site_name" content="The Arrid Club">
 <meta property="og:image" content="https://arridclub.com/cinematic-arrid.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +31,7 @@
 
   .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem;
     margin-bottom: 2rem;
   }
@@ -67,6 +67,10 @@
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;
+  }
+  .email-link {
+    display: inline-block;
+    overflow-wrap: anywhere;
   }
 
   .directions-btn {
@@ -255,7 +259,7 @@
     font-weight: 600;
   }
 
-  @media (max-width: 560px) {
+  @media (max-width: 760px) {
     .contact-grid { grid-template-columns: 1fr; }
   }
 </style>
@@ -292,7 +296,7 @@
 <main class="contact-container">
 
   <!-- Contact cards -->
-  <section class="contact-grid" aria-label="Location and hours">
+  <section class="contact-grid" aria-label="Location, email, and hours">
     <article class="contact-card">
       <div class="icon" aria-hidden="true">📍</div>
       <h2>Address</h2>
@@ -301,6 +305,11 @@
         Hemet, CA 92543</a>
       </p>
       <a href="https://www.google.com/maps/search/?api=1&amp;query=120+S+Harvard+St%2C+Hemet%2C+CA+92543" target="_blank" rel="noopener noreferrer" class="directions-btn">Get Directions</a>
+    </article>
+    <article class="contact-card">
+      <div class="icon" aria-hidden="true">✉️</div>
+      <h2>Email</h2>
+      <p>For general questions, club information, or website updates, email us at<br><br><a class="email-link" href="mailto:contact@arridclub.com">contact@arridclub.com</a></p>
     </article>
     <article class="contact-card">
       <div class="icon" aria-hidden="true">🕐</div>
@@ -375,6 +384,7 @@
 <footer class="site-footer">
   <div class="footer-logo">The <span>Arrid</span> Club</div>
   <div class="footer-address">120 S. Harvard St, Hemet, CA 92543</div>
+  <div class="footer-address"><a href="mailto:contact@arridclub.com">contact@arridclub.com</a></div>
   <ul class="footer-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="meetings.html">Meetings</a></li>
