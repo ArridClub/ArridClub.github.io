@@ -15,6 +15,31 @@
 <meta property="og:title" content="Fellowship – The Arrid Club | Hemet, CA">
 <meta property="og:description" content="We Are Not A Glum Lot — Recovery is more than meetings. It's friendship, laughter, service, and community.">
 <meta property="og:site_name" content="The Arrid Club">
+<meta property="og:image" content="https://arridclub.com/sunset-background.webp">
+<meta property="og:image:alt" content="Sunset over the San Jacinto Valley">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fellowship – The Arrid Club | Hemet, CA">
+<meta name="twitter:description" content="Friendship, laughter, service, and community at The Arrid Club.">
+<meta name="twitter:image" content="https://arridclub.com/sunset-background.webp">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NonprofitOrganization",
+  "name": "The Arrid Club",
+  "url": "https://arridclub.com/",
+  "foundingDate": "1973-06-20",
+  "description": "A non-profit recovery community facility serving the San Jacinto Valley with meetings, fellowship, service, and community events.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "120 S. Harvard St.",
+    "addressLocality": "Hemet",
+    "addressRegion": "CA",
+    "postalCode": "92543",
+    "addressCountry": "US"
+  },
+  "sameAs": ["https://www.facebook.com/groups/1225924959475339"]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@300;400;600;700&display=optional" rel="stylesheet">
@@ -124,7 +149,7 @@
     font-style: normal;
   }
 
-  /* Photo gallery placeholder */
+  /* Photo gallery coming-soon panel */
   .gallery-section {
     margin-bottom: 3rem;
   }
@@ -135,62 +160,39 @@
     text-align: center;
     margin-bottom: 0.5rem;
   }
-  .gallery-section .section-sub {
-    text-align: center;
-    font-size: 0.88rem;
-    color: #7a6050;
-    margin-bottom: 1.75rem;
-    font-weight: 300;
-  }
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-  .gallery-placeholder {
+  .gallery-coming-soon-card {
+    max-width: 700px;
+    margin: 1.25rem auto 0;
     background: #f5ede0;
     border-radius: 12px;
-    aspect-ratio: 4/3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     border: 2px dashed #c9a87a;
-    color: #a07850;
-    gap: 0.5rem;
-    transition: background 0.2s;
-  }
-  .gallery-placeholder:hover {
-    background: #ede0cc;
-  }
-  .gallery-placeholder .ph-icon {
-    font-size: 2rem;
-    opacity: 0.6;
-  }
-  .gallery-placeholder span {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
+    padding: 2rem 2.25rem;
     text-align: center;
-    padding: 0 0.5rem;
-    opacity: 0.75;
   }
-  .gallery-coming-soon {
-    text-align: center;
-    margin-top: 1.25rem;
-    font-size: 0.85rem;
+  .gallery-coming-soon-card .photo-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+  .gallery-coming-soon-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--rust);
+    font-size: 1.15rem;
+    margin-bottom: 0.55rem;
+  }
+  .gallery-coming-soon-card > p {
+    max-width: 540px;
+    margin: 0 auto;
+    font-size: 0.88rem;
     color: #7a6050;
-    font-style: italic;
+    line-height: 1.7;
     font-weight: 300;
   }
 
   /* Anonymity note */
   .anonymity-note {
-    background: #faf5ee;
+    background: rgba(255,255,255,0.55);
     border-left: 4px solid var(--gold);
     border-radius: 0 10px 10px 0;
     padding: 1.25rem 1.5rem;
-    margin-bottom: 3rem;
+    margin: 1.25rem auto 0;
+    text-align: left;
     font-size: 0.85rem;
     color: #5a4030;
     line-height: 1.7;
@@ -242,25 +244,26 @@
   /* Responsive */
   @media (max-width: 700px) {
     .activity-grid { grid-template-columns: repeat(2, 1fr); }
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     .quote-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 480px) {
     .activity-grid { grid-template-columns: 1fr; }
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-coming-soon-card { padding: 1.5rem 1.1rem; }
   }
 </style>
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
 <!-- NAV -->
-<nav class="site-nav">
+<nav class="site-nav" aria-label="Primary navigation">
   <div class="nav-inner">
     <div class="nav-logo">🐪 The <span>Arrid</span> Club</div>
-    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+    <button class="nav-toggle" onclick="const links=document.querySelector('.nav-links'); const isOpen=links.classList.toggle('open'); this.setAttribute('aria-expanded', isOpen)" aria-label="Open navigation menu" aria-controls="primary-nav-links" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
-    <ul class="nav-links">
+    <ul class="nav-links" id="primary-nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="meetings.html">Meetings</a></li>
       <li><a href="events.html">Events</a></li>
@@ -271,6 +274,8 @@
     </ul>
   </div>
 </nav>
+
+<main id="main-content">
 
 <!-- HERO -->
 <div class="page-hero">
@@ -362,42 +367,17 @@
     </div>
   </div>
 
-  <!-- Photo gallery placeholders -->
+  <!-- Photo gallery coming soon -->
   <div class="gallery-section">
     <h2>Fellowship in Action</h2>
-    <p class="section-sub">All photos on this page are shared with the knowledge and permission of those pictured.</p>
-    <div class="gallery-grid">
-      <div class="gallery-placeholder">
-        <span class="ph-icon">🍳</span>
-        <span>Pancake Breakfast</span>
-      </div>
-      <div class="gallery-placeholder">
-        <span class="ph-icon">🎂</span>
-        <span>Anniversary Celebrations</span>
-      </div>
-      <div class="gallery-placeholder">
-        <span class="ph-icon">🍖</span>
-        <span>BBQ's & Celebrations</span>
-      </div>
-      <div class="gallery-placeholder">
-        <span class="ph-icon">⛳</span>
-        <span>Golf Outing</span>
-      </div>
-      <div class="gallery-placeholder">
-        <span class="ph-icon">💃</span>
-        <span>Dance Nights</span>
-      </div>
-      <div class="gallery-placeholder">
-        <span class="ph-icon">🎄</span>
-        <span>Holiday Celebrations</span>
+    <div class="gallery-coming-soon-card">
+      <div class="photo-icon" aria-hidden="true">📸</div>
+      <h3>Fellowship Photos Coming Soon</h3>
+      <p>We look forward to sharing approved photos from future breakfasts, celebrations, outings, and other club events.</p>
+      <div class="anonymity-note">
+        <strong>Our commitment to anonymity:</strong> When photos are added, they will be published only with the knowledge and permission of those pictured. We fully respect anyone who chooses not to be photographed.
       </div>
     </div>
-    <p class="gallery-coming-soon">📸 Photos coming soon — check back after our next event!</p>
-  </div>
-
-  <!-- Anonymity note -->
-  <div class="anonymity-note">
-    <strong>A note on anonymity:</strong> Photos on this page are shared with the knowledge and permission of those pictured. We respect the principles of anonymity and never publish photographs without consent. Not everyone who participates in fellowship activities chooses to be photographed, and we fully respect that choice.
   </div>
 
   <!-- More than meetings CTA -->
@@ -408,6 +388,8 @@
   </div>
 
 </div>
+
+</main>
 
 <!-- FOOTER -->
 <footer class="site-footer">
@@ -421,7 +403,7 @@
     <li><a href="about.html">About</a></li>
     <li><a href="guidelines.html">Guidelines</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li><a href="https://www.facebook.com/groups/1225924959475339" target="_blank">Facebook</a></li>
+    <li><a href="https://www.facebook.com/groups/1225924959475339" target="_blank" rel="noopener noreferrer">Facebook</a></li>
   </ul>
   <div class="footer-copy">Arrid Club California © 2026 · Serving the San Jacinto Valley since 1973</div>
 </footer>
