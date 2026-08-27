@@ -49,18 +49,21 @@
   .neon-banner {
     position: relative;
     width: 100%;
+    background: #160705;
   }
   .neon-img {
     display: block;
     width: 100%;
-    height: clamp(240px, 25vw, 320px);
-    object-fit: cover;
-    object-position: center 30%;
+    height: clamp(430px, 38vw, 680px);
+    object-fit: contain;
+    object-position: center;
   }
   @media (max-width: 768px) {
     .neon-img {
-      height: 210px;
-      object-position: center 60%;
+      height: auto;
+      max-height: 620px;
+      object-fit: contain;
+      object-position: center;
     }
   }
 
