@@ -149,40 +149,132 @@
     font-style: normal;
   }
 
-  /* Photo gallery coming-soon panel */
-  .gallery-section {
+  /* Anonymous chip gallery/submission section */
+  .chip-gallery-section {
     margin-bottom: 3rem;
   }
-  .gallery-section h2 {
+  .chip-gallery-section h2 {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
     color: var(--rust);
     text-align: center;
     margin-bottom: 0.5rem;
   }
-  .gallery-coming-soon-card {
-    max-width: 700px;
-    margin: 1.25rem auto 0;
+  .chip-gallery-panel {
+    margin-top: 1.25rem;
     background: #f5ede0;
-    border-radius: 12px;
-    border: 2px dashed #c9a87a;
-    padding: 2rem 2.25rem;
+    border-radius: 16px;
+    border: 1px solid rgba(201,168,122,0.65);
+    box-shadow: 0 2px 12px rgba(44,26,14,0.08);
+    overflow: hidden;
+  }
+  .chip-gallery-intro {
+    padding: 2.25rem 2.5rem 1.75rem;
     text-align: center;
   }
-  .gallery-coming-soon-card .photo-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
-  .gallery-coming-soon-card h3 {
+  .chip-gallery-intro .chip-icon {
+    font-size: 2.6rem;
+    margin-bottom: 0.5rem;
+  }
+  .chip-gallery-intro h3 {
     font-family: 'Playfair Display', serif;
     color: var(--rust);
     font-size: 1.15rem;
     margin-bottom: 0.55rem;
   }
-  .gallery-coming-soon-card > p {
-    max-width: 540px;
+  .chip-gallery-intro p {
+    max-width: 640px;
     margin: 0 auto;
     font-size: 0.88rem;
     color: #7a6050;
     line-height: 1.7;
     font-weight: 300;
+  }
+  .chip-submission-details {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 1rem;
+    padding: 0 1.25rem 1.25rem;
+  }
+  .chip-detail-card,
+  .chip-submit-card {
+    background: rgba(255,255,255,0.62);
+    border-radius: 12px;
+    padding: 1.35rem 1.5rem;
+    border: 1px solid rgba(201,168,122,0.5);
+  }
+  .chip-detail-card h3,
+  .chip-submit-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--deep);
+    font-size: 1.05rem;
+    margin-bottom: 0.65rem;
+  }
+  .chip-detail-card p,
+  .chip-submit-card p {
+    font-size: 0.86rem;
+    color: #5a4030;
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 0.8rem;
+  }
+  .chip-detail-card ul {
+    margin: 0;
+    padding-left: 1.05rem;
+    color: #5a4030;
+    font-size: 0.86rem;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .chip-detail-card li + li {
+    margin-top: 0.25rem;
+  }
+  .chip-submit-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--deep);
+    font-weight: 700;
+    font-size: 0.82rem;
+    padding: 0.72rem 1.55rem;
+    border-radius: 30px;
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .chip-submit-btn:hover {
+    opacity: 0.86;
+    transform: translateY(-1px);
+  }
+  .chip-gallery-placeholder {
+    padding: 1.25rem;
+    background: rgba(255,255,255,0.38);
+    border-top: 1px solid rgba(201,168,122,0.5);
+  }
+  .chip-placeholder-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .chip-placeholder-card {
+    min-height: 190px;
+    border-radius: 12px;
+    border: 2px dashed rgba(122,96,80,0.32);
+    background:
+      radial-gradient(circle at center, rgba(194,139,57,0.16) 0 28%, transparent 29%),
+      rgba(255,255,255,0.42);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    text-align: center;
+  }
+  .chip-placeholder-card span {
+    font-size: 0.75rem;
+    color: #7a6050;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
 
   /* Anonymity note */
@@ -245,10 +337,16 @@
   @media (max-width: 700px) {
     .activity-grid { grid-template-columns: repeat(2, 1fr); }
     .quote-grid { grid-template-columns: 1fr; }
+    .chip-submission-details { grid-template-columns: 1fr; }
+    .chip-placeholder-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 480px) {
     .activity-grid { grid-template-columns: 1fr; }
-    .gallery-coming-soon-card { padding: 1.5rem 1.1rem; }
+    .chip-gallery-intro { padding: 1.65rem 1.2rem 1.3rem; }
+    .chip-submission-details { padding: 0 0.85rem 0.85rem; }
+    .chip-detail-card,
+    .chip-submit-card { padding: 1.15rem; }
+    .chip-placeholder-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -367,15 +465,45 @@
     </div>
   </div>
 
-  <!-- Photo gallery coming soon -->
-  <div class="gallery-section">
-    <h2>Fellowship in Action</h2>
-    <div class="gallery-coming-soon-card">
-      <div class="photo-icon" aria-hidden="true">📸</div>
-      <h3>Fellowship Photos Coming Soon</h3>
-      <p>We look forward to sharing approved photos from future breakfasts, celebrations, outings, and other club events.</p>
+  <!-- Anonymous chip gallery/submission section -->
+  <div class="chip-gallery-section">
+    <h2>Our Chips, Our Journeys</h2>
+    <p class="section-sub" style="text-align:center; margin-bottom:1.75rem;">Anonymous sobriety-chip photos from the Arrid Club community</p>
+    <div class="chip-gallery-panel">
+      <div class="chip-gallery-intro">
+        <div class="chip-icon" aria-hidden="true">🪙</div>
+        <h3>Share a Chip That Means Something to You</h3>
+        <p>Members are invited to submit a photo of a sobriety chip that carries meaning, whether it marks a first day, a hard-won anniversary, a special meeting, or a moment that helped you keep going. No names will be displayed, and captions are optional.</p>
+      </div>
+
+      <div class="chip-submission-details">
+        <div class="chip-detail-card">
+          <h3>All Milestones Are Welcome</h3>
+          <p>Every sober milestone matters here, from 24-hour chips through long-term anniversary chips. If the chip tells part of your recovery story, it belongs in this gallery.</p>
+          <ul>
+            <li>Send a clear photo of the chip only.</li>
+            <li>Include an optional short anonymous caption or story.</li>
+            <li>Please avoid faces, full names, phone numbers, license plates, or anything personally identifying in the photo.</li>
+          </ul>
+        </div>
+
+        <div class="chip-submit-card">
+          <h3>Submit Your Chip</h3>
+          <p>Email your chip photo to the Arrid Club. Attach the photo and, if you would like, include a short anonymous caption about what the chip means to you.</p>
+          <a class="chip-submit-btn" href="mailto:contact@arridclub.com?subject=Anonymous%20Sobriety%20Chip%20Submission&body=Please%20attach%20your%20sobriety%20chip%20photo%20to%20this%20email.%0A%0AOptional%20anonymous%20caption%20or%20short%20story%3A%0A%0APlease%20do%20not%20include%20names%20or%20personally%20identifying%20details%20you%20do%20not%20want%20published.">Submit Your Chip</a>
+        </div>
+      </div>
+
+      <div class="chip-gallery-placeholder" aria-label="Approved sobriety chip photo gallery">
+        <div class="chip-placeholder-grid">
+          <div class="chip-placeholder-card"><span>Awaiting Approved Photo</span></div>
+          <div class="chip-placeholder-card"><span>Awaiting Approved Photo</span></div>
+          <div class="chip-placeholder-card"><span>Awaiting Approved Photo</span></div>
+        </div>
+      </div>
+
       <div class="anonymity-note">
-        <strong>Our commitment to anonymity:</strong> When photos are added, they will be published only with the knowledge and permission of those pictured. We fully respect anyone who chooses not to be photographed.
+        <strong>Privacy and review:</strong> Submissions are reviewed before publication for privacy and appropriateness. Photos that include identifying information, people who have not given permission, or unsuitable background details may be declined or need to be resubmitted.
       </div>
     </div>
   </div>
