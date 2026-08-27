@@ -15,12 +15,37 @@
 <meta property="og:title" content="About the Arrid Club – Hemet, CA | Since 1973">
 <meta property="og:description" content="The Arrid Club has been a cornerstone of the San Jacinto Valley recovery community since 1973. Learn about our history, mission, and facility at 120 S. Harvard St, Hemet, CA.">
 <meta property="og:site_name" content="The Arrid Club">
+<meta property="og:image" content="https://arridclub.com/cinematic-neon.webp">
+<meta property="og:image:alt" content="The Arrid Club neon sign">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About the Arrid Club – Hemet, CA | Since 1973">
+<meta name="twitter:description" content="Learn about the Arrid Club's history, mission, and recovery community in Hemet, California.">
+<meta name="twitter:image" content="https://arridclub.com/cinematic-neon.webp">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NonprofitOrganization",
+  "name": "The Arrid Club",
+  "url": "https://arridclub.com/",
+  "foundingDate": "1973-06-20",
+  "description": "A non-profit recovery community facility serving the San Jacinto Valley with meetings, fellowship, service, and community events.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "120 S. Harvard St.",
+    "addressLocality": "Hemet",
+    "addressRegion": "CA",
+    "postalCode": "92543",
+    "addressCountry": "US"
+  },
+  "sameAs": ["https://www.facebook.com/groups/1225924959475339"]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@300;400;600;700&display=optional" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-  /* Neon banner — full bleed, text overlaid just below sign */
+  /* Short cinematic neon banner */
   .neon-banner {
     position: relative;
     width: 100%;
@@ -28,52 +53,14 @@
   .neon-img {
     display: block;
     width: 100%;
-    aspect-ratio: 16 / 7;
+    height: clamp(240px, 25vw, 320px);
     object-fit: cover;
     object-position: center 30%;
   }
-  .neon-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 5rem 2rem 2rem;
-    background: linear-gradient(to top, rgba(8,2,0,0.97) 0%, rgba(8,2,0,0.85) 40%, transparent 100%);
-    text-align: center;
-  }
-  .neon-tagline {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1rem, 2.8vw, 1.45rem);
-    font-weight: 900;
-    letter-spacing: 0.22em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 0.75rem;
-    line-height: 1.2;
-  }
-  .neon-divider {
-    width: 48px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    margin: 0 auto 1rem;
-  }
-  .neon-body {
-    font-size: clamp(0.82rem, 1.4vw, 0.95rem);
-    line-height: 1.8;
-    color: var(--sand);
-    font-weight: 300;
-    max-width: 560px;
-    margin: 0 auto;
-    opacity: 0.88;
-  }
-
   @media (max-width: 768px) {
     .neon-img {
-      aspect-ratio: 3 / 4;
-      object-position: center 85%;
-    }
-    .neon-overlay {
-      padding: 3rem 1.5rem 2rem;
+      height: 210px;
+      object-position: center 60%;
     }
   }
 
@@ -185,9 +172,24 @@
     white-space: nowrap;
   }
   .guidelines-btn:hover { background: var(--parchment); }
+  .guidelines-actions {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .directions-btn {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    text-align: center;
+  }
+  .directions-btn:hover { color: var(--deep); }
 
   @media (max-width: 620px) {
-    .guidelines-teaser { flex-direction: column; gap: 1.2rem; }
+    .guidelines-teaser { flex-direction: column; align-items: stretch; gap: 1.2rem; }
+    .guidelines-actions { width: 100%; }
+    .guidelines-btn { text-align: center; }
   }
 
   /* Events pills */
@@ -332,43 +334,42 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
 <!-- NAV -->
-<nav class="site-nav">
+<nav class="site-nav" aria-label="Primary navigation">
   <div class="nav-inner">
     <div class="nav-logo">🐪 The <span>Arrid</span> Club</div>
-    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+    <button class="nav-toggle" onclick="const links=document.querySelector('.nav-links'); const isOpen=links.classList.toggle('open'); this.setAttribute('aria-expanded', isOpen)" aria-label="Open navigation menu" aria-controls="primary-nav-links" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
-    <ul class="nav-links">
+    <ul class="nav-links" id="primary-nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="meetings.html">Meetings</a></li>
       <li><a href="events.html">Events</a></li>
       <li><a href="fellowship.html">Fellowship</a></li>
-      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="about.html" class="active" aria-current="page">About</a></li>
       <li><a href="guidelines.html">Guidelines</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
 
+<main id="main-content">
+
 <!-- HERO -->
 <div class="page-hero">
   <div class="deco">🏡</div>
   <h1>About the <span>Arrid Club</span></h1>
-  <div class="hero-sub">Serving the San Jacinto Valley Recovery Community for Over 50 Years</div>
+  <div class="hero-sub">A welcoming home for recovery in the San Jacinto Valley since 1973</div>
 </div>
 
 <!-- NEON BANNER -->
 <div class="neon-banner">
   <picture>
     <source media="(max-width: 768px)" srcset="cinematic-neon-portrait.webp">
-    <img src="cinematic-neon.webp" alt="Unity · Service · Recovery neon sign" class="neon-img" width="1672" height="941">
+    <img src="cinematic-neon.webp" alt="The Arrid Club neon sign at night" class="neon-img" width="1672" height="941" fetchpriority="high">
   </picture>
-  <div class="neon-overlay">
-    <div class="neon-tagline">UNITY &nbsp;•&nbsp; SERVICE &nbsp;•&nbsp; RECOVERY</div>
-    <div class="neon-divider"></div>
-    <p class="neon-body">For more than 50 years, the Arrid Club has grown alongside the recovery community of the San Jacinto Valley. From humble beginnings to becoming a place of fellowship, support, and connection, our story continues today.</p>
-  </div>
 </div>
 
 <!-- CONTENT -->
@@ -377,8 +378,8 @@
   <!-- Stats -->
   <div class="stats-row">
     <div class="stat-card">
-      <div class="stat-number">1970s</div>
-      <div class="stat-label">Founded</div>
+      <div class="stat-number">1973</div>
+      <div class="stat-label">Founded June 20</div>
     </div>
     <div class="stat-card">
       <div class="stat-number">50+</div>
@@ -400,7 +401,7 @@
   <!-- Our History -->
   <div class="prose-section green-accent">
     <h2>🏛️ Our History</h2>
-    <p>The Arrid Club has been a part of the San Jacinto Valley recovery community since the early 1970s and has continued to evolve alongside the people it serves. Throughout the years, the club has called several locations home, beginning in a small former welding building near San Jacinto Street before relocating multiple times as the community grew.</p>
+    <p>The Arrid Club was founded on June 20, 1973, and has continued to evolve alongside the San Jacinto Valley recovery community. Throughout the years, the club has called several locations home, beginning in a small former welding building near San Jacinto Street before relocating multiple times as the community grew.</p>
     <p>From Main Street in San Jacinto to several additional locations throughout the valley, each move reflected one thing: growth. As more individuals found recovery and fellowship through the Arrid Club, the need for a larger and more permanent gathering place grew as well.</p>
     <p>Today, the Arrid Club proudly serves the community from its home in Hemet, where it continues to provide a welcoming environment centered on recovery, fellowship, and support. More than just a building, the Arrid Club has become a place where friendships are formed, lives are changed, and countless people have found a sense of belonging.</p>
   </div>
@@ -437,8 +438,8 @@
         <img src="upstairs-north-to-south-center.webp" alt="Upstairs meeting room looking north to south" width="1086" height="1448" loading="lazy">
       </div>
       <div class="space-text">
-        <h3>Upstairs — Meeting Room</h3>
-        <p>Our upstairs room is our largest gathering space, hosting daily meetings and larger group events. Rows of chairs line the walls with tables at the center, creating an open, welcoming circle for shared recovery.</p>
+        <h3>Upstairs — Main Meeting Area</h3>
+        <p>A center view of our largest gathering space, with seating arranged around tables to create an open and welcoming setting for daily meetings and larger groups.</p>
       </div>
     </div>
 
@@ -447,8 +448,8 @@
         <img src="upstairs-leader-secretary.webp" alt="Upstairs leader and secretary area" width="1086" height="1448" loading="lazy">
       </div>
       <div class="space-text">
-        <h3>Upstairs — Meeting Room</h3>
-        <p>Our upstairs meeting room offers a welcoming space designed for fellowship and connection. Recovery literature and resources are readily available, creating a comfortable environment for members and newcomers alike.</p>
+        <h3>Upstairs — Leader &amp; Secretary Area</h3>
+        <p>The front of the upstairs room includes the leader and secretary tables, along with recovery literature and resources used during meetings.</p>
       </div>
     </div>
 
@@ -457,8 +458,8 @@
         <img src="downstairs-north-to-south-leader-secretary.webp" alt="Downstairs meeting room" width="1086" height="1448" loading="lazy">
       </div>
       <div class="space-text">
-        <h3>Downstairs — Meeting Room</h3>
-        <p>Downstairs provides a quieter setting for smaller meetings and groups. With its own tables, chairs, and recovery materials, it offers an intimate space for those who prefer a more focused gathering.</p>
+        <h3>Downstairs — Main Meeting Area</h3>
+        <p>A view toward the downstairs leader and secretary area. This quieter room provides tables, chairs, and recovery materials for smaller meetings and groups.</p>
       </div>
     </div>
 
@@ -467,8 +468,8 @@
         <img src="downstairs-south-to-north-leader-secretary.webp" alt="Downstairs meeting room south to north view" width="1086" height="1448" loading="lazy">
       </div>
       <div class="space-text">
-        <h3>Downstairs — Meeting Room</h3>
-        <p>Our downstairs meeting room provides a welcoming space for fellowship, connection, and recovery. Designed for both members and newcomers, it offers a comfortable setting where people can gather before and after meetings.</p>
+        <h3>Downstairs — Alternate View</h3>
+        <p>Looking across the downstairs room from the opposite direction, showing its comfortable seating arrangement and dedicated meeting area.</p>
       </div>
     </div>
   </div>
@@ -479,17 +480,22 @@
       <h2>📋 Club Guidelines</h2>
       <p>The Arrid Club maintains a set of guidelines to ensure a safe, respectful, and welcoming environment for everyone. All members and guests are expected to follow these guidelines while on Club property.</p>
     </div>
-    <a href="guidelines.html" class="guidelines-btn">View Club Guidelines →</a>
+    <div class="guidelines-actions">
+      <a href="guidelines.html" class="guidelines-btn">View Club Guidelines →</a>
+      <a href="https://www.google.com/maps/dir/?api=1&amp;destination=120+S+Harvard+St%2C+Hemet%2C+CA+92543" class="guidelines-btn directions-btn" target="_blank" rel="noopener noreferrer">Get Directions →</a>
+    </div>
   </div>
 
   <!-- Contact -->
   <div class="contact-strip">
     <h3>Come Find Us</h3>
-    <p>📍 120 S Harvard St, Hemet, CA 92543</p>
+    <p>📍 <a href="https://www.google.com/maps/search/?api=1&amp;query=120+S+Harvard+St%2C+Hemet%2C+CA+92543" target="_blank" rel="noopener noreferrer">120 S. Harvard St., Hemet, CA 92543</a></p>
     <p style="margin-top: 0.75rem; font-size: 0.82rem; opacity: 0.75;">Right in the center of town. All are welcome.</p>
   </div>
 
 </div>
+
+</main>
 
 <!-- FOOTER -->
 <footer class="site-footer">
@@ -504,7 +510,7 @@
     <li><a href="guidelines.html">Guidelines</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <div class="footer-copy">Arrid Club California © 2026 · Serving the San Jacinto Valley since the early 1970s</div>
+  <div class="footer-copy">Arrid Club California © 2026 · Serving the San Jacinto Valley since 1973</div>
 </footer>
 
 </body>
