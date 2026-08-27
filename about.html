@@ -15,12 +15,12 @@
 <meta property="og:title" content="About the Arrid Club – Hemet, CA | Since 1973">
 <meta property="og:description" content="The Arrid Club has been a cornerstone of the San Jacinto Valley recovery community since 1973. Learn about our history, mission, and facility at 120 S. Harvard St, Hemet, CA.">
 <meta property="og:site_name" content="The Arrid Club">
-<meta property="og:image" content="https://arridclub.com/cinematic-neon.webp">
+<meta property="og:image" content="https://arridclub.com/cinematic-neon-wide.webp">
 <meta property="og:image:alt" content="The Arrid Club neon sign">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="About the Arrid Club – Hemet, CA | Since 1973">
 <meta name="twitter:description" content="Learn about the Arrid Club's history, mission, and recovery community in Hemet, California.">
-<meta name="twitter:image" content="https://arridclub.com/cinematic-neon.webp">
+<meta name="twitter:image" content="https://arridclub.com/cinematic-neon-wide.webp">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -52,30 +52,13 @@
     background: #160705;
     overflow: hidden;
   }
-  .neon-banner::before {
-    content: "";
-    position: absolute;
-    inset: -6px;
-    background: url("cinematic-neon.webp") center / cover no-repeat;
-    filter: blur(3px) brightness(0.72);
-    transform: scale(1.015);
-  }
-  .neon-banner picture {
-    position: relative;
-    z-index: 1;
-    display: block;
-  }
+  .neon-banner picture { display: block; }
   .neon-img {
     display: block;
     width: 100%;
-    height: clamp(430px, 38vw, 680px);
-    object-fit: contain;
-    object-position: center;
+    height: auto;
   }
   @media (max-width: 768px) {
-    .neon-banner::before {
-      background-image: url("cinematic-neon-portrait.webp");
-    }
     .neon-img {
       height: auto;
       max-height: 620px;
@@ -388,7 +371,7 @@
 <div class="neon-banner">
   <picture>
     <source media="(max-width: 768px)" srcset="cinematic-neon-portrait.webp">
-    <img src="cinematic-neon.webp" alt="The Arrid Club neon sign at night" class="neon-img" width="1672" height="941" fetchpriority="high">
+    <img src="cinematic-neon-wide.webp" alt="The Arrid Club neon sign at night" class="neon-img" width="2137" height="736" fetchpriority="high">
   </picture>
 </div>
 
