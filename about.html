@@ -50,6 +50,20 @@
     position: relative;
     width: 100%;
     background: #160705;
+    overflow: hidden;
+  }
+  .neon-banner::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    background: url("cinematic-neon.webp") center / cover no-repeat;
+    filter: blur(3px) brightness(0.72);
+    transform: scale(1.015);
+  }
+  .neon-banner picture {
+    position: relative;
+    z-index: 1;
+    display: block;
   }
   .neon-img {
     display: block;
@@ -59,6 +73,9 @@
     object-position: center;
   }
   @media (max-width: 768px) {
+    .neon-banner::before {
+      background-image: url("cinematic-neon-portrait.webp");
+    }
     .neon-img {
       height: auto;
       max-height: 620px;
