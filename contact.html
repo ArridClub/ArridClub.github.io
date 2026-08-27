@@ -13,8 +13,9 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://arridclub.com/contact.html">
 <meta property="og:title" content="Find Us – The Arrid Club | 120 S. Harvard St, Hemet, CA">
-<meta property="og:description" content="The Arrid Club is located at 120 S. Harvard St, Hemet, CA 92543. Open every day of the week. Get directions and learn what to expect on your first visit.">
+<meta property="og:description" content="The Arrid Club is located at 120 S. Harvard St, Hemet, CA 92543. Meetings are held every day of the week. Get directions and learn what to expect on your first visit.">
 <meta property="og:site_name" content="The Arrid Club">
+<meta property="og:image" content="https://arridclub.com/cinematic-arrid.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@300;400;600;700&display=optional" rel="stylesheet">
@@ -43,7 +44,7 @@
     text-align: center;
   }
   .contact-card .icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
-  .contact-card h3 {
+  .contact-card h2 {
     font-family: 'Playfair Display', serif;
     font-size: 1.2rem;
     color: var(--rust);
@@ -60,6 +61,13 @@
     font-weight: 600;
   }
   .contact-card a:hover { color: var(--rust); }
+  .address-link {
+    color: #5a4030 !important;
+    font-weight: 400 !important;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
 
   .directions-btn {
     display: inline-block;
@@ -75,6 +83,12 @@
     transition: background 0.2s;
   }
   .directions-btn:hover { background: var(--parchment); }
+  .facebook-card { margin-bottom: 1.5rem; }
+  .facebook-btn {
+    background: #1877F2;
+    color: white !important;
+  }
+  .facebook-btn:hover { background: #0f63cf; }
 
   /* Exterior photo block */
   .exterior-wrap {
@@ -95,7 +109,7 @@
     border-top: 3px solid var(--gold);
     margin-top: 0;
   }
-  .exterior-caption h3 {
+  .exterior-caption h2 {
     font-family: 'Playfair Display', serif;
     font-size: 1.25rem;
     color: var(--rust);
@@ -142,6 +156,8 @@
   }
   .carousel-wrap {
     position: relative;
+    max-width: 600px;
+    margin: 0 auto;
     border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 4px 16px rgba(44,26,14,0.12);
@@ -197,6 +213,9 @@
     gap: 8px;
   }
   .dot {
+    appearance: none;
+    padding: 0;
+    border: 0;
     width: 9px; height: 9px;
     border-radius: 50%;
     background: rgba(255,255,255,0.5);
@@ -204,6 +223,12 @@
     transition: background 0.2s;
   }
   .dot.active { background: #D4A843; }
+  .dot:focus-visible,
+  .carousel-btn:focus-visible,
+  .directions-btn:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+  }
 
   /* Hours summary */
   .hours-summary {
@@ -213,7 +238,7 @@
     color: var(--sand);
     text-align: center;
   }
-  .hours-summary h3 {
+  .hours-summary h2 {
     font-family: 'Playfair Display', serif;
     font-size: 1.2rem;
     color: var(--gold);
@@ -240,11 +265,11 @@
 <!-- NAV -->
 <nav class="site-nav">
   <div class="nav-inner">
-    <div class="nav-logo">🐪 The <span>Arrid</span> Club</div>
-    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+    <div class="nav-logo"><span aria-hidden="true">🐪</span> The <span>Arrid</span> Club</div>
+    <button class="nav-toggle" aria-label="Menu" aria-controls="primary-navigation" aria-expanded="false" onclick="const links=document.querySelector('.nav-links'); const open=links.classList.toggle('open'); this.setAttribute('aria-expanded', open)">
       <span></span><span></span><span></span>
     </button>
-    <ul class="nav-links">
+    <ul class="nav-links" id="primary-navigation">
       <li><a href="index.html">Home</a></li>
       <li><a href="meetings.html">Meetings</a></li>
       <li><a href="events.html">Events</a></li>
@@ -258,93 +283,93 @@
 
 <!-- HERO -->
 <div class="page-hero">
-  <div class="deco">📍</div>
+  <div class="deco" aria-hidden="true">📍</div>
   <h1>Find <span>Us</span></h1>
   <div class="hero-sub">120 S. Harvard St · Hemet, CA 92543</div>
 </div>
 
 <!-- CONTENT -->
-<div class="contact-container">
+<main class="contact-container">
 
   <!-- Contact cards -->
-  <div class="contact-grid">
-    <div class="contact-card">
-      <div class="icon">📍</div>
-      <h3>Address</h3>
+  <section class="contact-grid" aria-label="Location and hours">
+    <article class="contact-card">
+      <div class="icon" aria-hidden="true">📍</div>
+      <h2>Address</h2>
       <p>
-        120 S. Harvard St<br>
-        Hemet, CA 92543
+        <a class="address-link" href="https://www.google.com/maps/search/?api=1&amp;query=120+S+Harvard+St%2C+Hemet%2C+CA+92543" target="_blank" rel="noopener noreferrer">120 S. Harvard St<br>
+        Hemet, CA 92543</a>
       </p>
-      <a href="https://maps.google.com/?q=120+S+Harvard+St+Hemet+CA+92543" target="_blank" class="directions-btn">Get Directions</a>
-    </div>
-    <div class="contact-card">
-      <div class="icon">🕐</div>
-      <h3>Hours</h3>
-      <p>Open every day of the week.<br>Doors open before meetings and close between meeting windows.<br><br><a href="meetings.html">View full meeting schedule →</a></p>
-    </div>
-  </div>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=120+S+Harvard+St%2C+Hemet%2C+CA+92543" target="_blank" rel="noopener noreferrer" class="directions-btn">Get Directions</a>
+    </article>
+    <article class="contact-card">
+      <div class="icon" aria-hidden="true">🕐</div>
+      <h2>Hours</h2>
+      <p>Meetings are held every day of the week. The Club opens 15 minutes before each scheduled meeting and closes between meeting windows.<br><br><a href="meetings.html">View full meeting schedule →</a></p>
+    </article>
+  </section>
 
   <!-- Exterior photo -->
-  <div class="exterior-wrap">
-    <img src="cinematic-arrid.webp" alt="The Arrid Club exterior at night — 120 S. Harvard St, Hemet, CA" class="exterior-photo" width="1448" height="814">
-    <div class="exterior-caption">
-      <h3>You're in the Right Place</h3>
+  <figure class="exterior-wrap">
+    <img src="cinematic-arrid.webp" alt="The Arrid Club exterior at night at 120 S. Harvard St. in Hemet, California" class="exterior-photo" width="1448" height="814">
+    <figcaption class="exterior-caption">
+      <h2>You're in the Right Place</h2>
       <p>Walking into a new meeting can feel intimidating. We want your first visit to feel easier. When you arrive at 120 S. Harvard Street, you'll know you've found us.</p>
-    </div>
-  </div>
+    </figcaption>
+  </figure>
 
   <!-- Facebook card -->
-  <div class="contact-card" style="margin-bottom: 1.5rem;">
-    <div class="icon">📘</div>
-    <h3>Facebook Group</h3>
+  <section class="contact-card facebook-card" aria-labelledby="facebook-heading">
+    <div class="icon" aria-hidden="true">📘</div>
+    <h2 id="facebook-heading">Facebook Group</h2>
     <p>Join our Facebook group to stay connected with the Arrid Club community, get updates, and see what's happening at the club.</p>
-    <a href="https://www.facebook.com/groups/1225924959475339" target="_blank" class="directions-btn" style="background: #1877F2; color: white; margin-top: 1rem; display: inline-block;">Visit our Facebook Group</a>
-  </div>
+    <a href="https://www.facebook.com/groups/1225924959475339" target="_blank" rel="noopener noreferrer" class="directions-btn facebook-btn">Visit our Facebook Group</a>
+  </section>
 
   <!-- Map -->
-  <div class="map-wrap">
+  <section class="map-wrap" aria-label="Map showing the Arrid Club location">
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.5!2d-116.9735!3d33.7475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80db6b0e0e0e0e0f%3A0x0!2s120+S+Harvard+St%2C+Hemet%2C+CA+92543!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus"
+      src="https://www.google.com/maps?q=120+S+Harvard+St%2C+Hemet%2C+CA+92543&amp;output=embed"
       allowfullscreen=""
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
       title="Arrid Club location map">
     </iframe>
-  </div>
+  </section>
 
   <!-- What to Expect carousel -->
-  <div class="expect-section">
-    <h3 class="expect-heading">What to Expect When You Arrive</h3>
+  <section class="expect-section" aria-labelledby="expect-heading">
+    <h2 class="expect-heading" id="expect-heading">What to Expect When You Arrive</h2>
     <p class="expect-sub">A look inside the spaces where recovery happens every day.</p>
-    <div class="carousel-wrap">
-      <div class="carousel-track" id="carouselTrack">
-        <div class="carousel-slide">
-          <img src="downstairs-south-to-north-leader-secretary.webp" alt="Downstairs meeting room" width="1086" height="1448">
+    <div class="carousel-wrap" role="region" aria-roledescription="carousel" aria-label="Arrid Club meeting spaces">
+      <div class="carousel-track" id="carouselTrack" aria-live="polite">
+        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 3">
+          <img src="downstairs-south-to-north-leader-secretary.webp" alt="Downstairs meeting room facing the leader and secretary tables" width="1086" height="1448">
         </div>
-        <div class="carousel-slide">
+        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 3" aria-hidden="true">
           <img src="upstairs-north-to-south-center.webp" alt="Upstairs meeting room" width="1086" height="1448" loading="lazy">
         </div>
-        <div class="carousel-slide">
-          <img src="downstairs-brick-wall.webp" alt="Downstairs brick wall and chairs" width="1086" height="1448" loading="lazy">
+        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 3" aria-hidden="true">
+          <img src="downstairs-brick-wall.webp" alt="Downstairs meeting room with brick wall and seating" width="1086" height="1448" loading="lazy">
         </div>
       </div>
-      <button class="carousel-btn carousel-prev" onclick="moveCarousel(-1)" aria-label="Previous">&#8249;</button>
-      <button class="carousel-btn carousel-next" onclick="moveCarousel(1)" aria-label="Next">&#8250;</button>
+      <button type="button" class="carousel-btn carousel-prev" onclick="moveCarousel(-1)" aria-label="Previous meeting space">&#8249;</button>
+      <button type="button" class="carousel-btn carousel-next" onclick="moveCarousel(1)" aria-label="Next meeting space">&#8250;</button>
       <div class="carousel-dots">
-        <span class="dot active" onclick="goToSlide(0)"></span>
-        <span class="dot" onclick="goToSlide(1)"></span>
-        <span class="dot" onclick="goToSlide(2)"></span>
+        <button type="button" class="dot active" onclick="goToSlide(0)" aria-label="Show downstairs meeting room" aria-current="true"></button>
+        <button type="button" class="dot" onclick="goToSlide(1)" aria-label="Show upstairs meeting room" aria-current="false"></button>
+        <button type="button" class="dot" onclick="goToSlide(2)" aria-label="Show brick-wall meeting room" aria-current="false"></button>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- Hours note -->
-  <div class="hours-summary">
-    <h3>Planning Your Visit</h3>
-    <p>The club opens 30 minutes before each meeting and the doors lock between meeting windows. Before visiting, check the <a href="meetings.html">meeting schedule</a> to make sure the club will be open when you arrive.<br><br>All are welcome. No appointment necessary.</p>
-  </div>
+  <section class="hours-summary" aria-labelledby="planning-heading">
+    <h2 id="planning-heading">Planning Your Visit</h2>
+    <p>Before visiting, check the <a href="meetings.html">meeting schedule</a> to make sure the Club will be open when you arrive.<br><br>All are welcome. No appointment necessary.</p>
+  </section>
 
-</div>
+</main>
 
 <!-- FOOTER -->
 <footer class="site-footer">
@@ -358,7 +383,7 @@
     <li><a href="about.html">About</a></li>
     <li><a href="guidelines.html">Guidelines</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li><a href="https://www.facebook.com/groups/1225924959475339" target="_blank">Facebook</a></li>
+    <li><a href="https://www.facebook.com/groups/1225924959475339" target="_blank" rel="noopener noreferrer">Facebook</a></li>
   </ul>
   <div class="footer-copy">Arrid Club California © 2026 · Serving the San Jacinto Valley since 1973</div>
 </footer>
@@ -368,7 +393,14 @@
   const total = 3;
   function updateCarousel() {
     document.getElementById('carouselTrack').style.transform = `translateX(-${current * 100}%)`;
-    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    document.querySelectorAll('.dot').forEach((d, i) => {
+      const active = i === current;
+      d.classList.toggle('active', active);
+      d.setAttribute('aria-current', active);
+    });
+    document.querySelectorAll('.carousel-slide').forEach((slide, i) => {
+      slide.setAttribute('aria-hidden', i !== current);
+    });
   }
   function moveCarousel(dir) {
     current = (current + dir + total) % total;
