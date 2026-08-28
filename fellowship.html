@@ -253,7 +253,7 @@
   }
   .chip-card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1rem;
   }
   .chip-card {
@@ -262,39 +262,66 @@
     border: 1px solid rgba(201,168,122,0.55);
     box-shadow: 0 2px 10px rgba(44,26,14,0.08);
     overflow: hidden;
+    min-height: 190px;
   }
-  .chip-card img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    display: block;
+  .chip-photo-link {
+    min-height: 190px;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: #eadcc8;
   }
-  .chip-card-body {
-    padding: 1.25rem;
-    text-align: center;
+  .chip-photo-link img {
+    width: 100%;
+    max-height: 190px;
+    object-fit: contain;
+    display: block;
   }
-  .chip-card h3 {
+  .chip-invite-card {
+    min-height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    flex-direction: column;
+    text-decoration: none;
+    text-align: center;
+    color: var(--deep);
+    background: rgba(255,255,255,0.42);
+    border: 2px dashed rgba(122,96,80,0.36);
+    box-shadow: none;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+  .chip-invite-card:hover,
+  .chip-invite-card:focus {
+    background: rgba(255,255,255,0.68);
+    border-color: rgba(188,82,42,0.55);
+    transform: translateY(-2px);
+  }
+  .chip-invite-card .invite-plus {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(201,168,122,0.28);
+    color: var(--rust);
+    font-size: 1.65rem;
+    line-height: 1;
+    font-weight: 300;
+  }
+  .chip-invite-card .invite-text {
     font-family: 'Playfair Display', serif;
     color: var(--rust);
-    font-size: 1.12rem;
-    margin-bottom: 0.55rem;
-  }
-  .chip-card p {
-    font-size: 0.86rem;
-    color: #5a4030;
-    line-height: 1.65;
-    font-weight: 300;
-    margin: 0;
-  }
-  .chip-card .chip-label {
-    display: block;
-    font-size: 0.7rem;
-    color: #7a6050;
+    font-size: 1rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 0.35rem;
+  }
+  .chip-invite-card .invite-note {
+    font-size: 0.78rem;
+    color: #7a6050;
+    font-weight: 300;
   }
 
   /* Anonymity note */
@@ -358,6 +385,7 @@
     .activity-grid { grid-template-columns: repeat(2, 1fr); }
     .quote-grid { grid-template-columns: 1fr; }
     .chip-submission-details { grid-template-columns: 1fr; }
+    .chip-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (max-width: 480px) {
     .activity-grid { grid-template-columns: 1fr; }
@@ -366,6 +394,7 @@
     .chip-detail-card,
     .chip-submit-card { padding: 1.15rem; }
     .chip-gallery { padding: 0.85rem; }
+    .chip-card-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -492,7 +521,7 @@
       <div class="chip-gallery-intro">
         <div class="chip-icon" aria-hidden="true">🪙</div>
         <h3>Share a Chip That Means Something to You</h3>
-        <p>Members are invited to submit a photo of a sobriety chip that carries meaning, whether it marks a first day, a hard-won anniversary, a special meeting, or a moment that helped you keep going. No names will be displayed, and captions are optional.</p>
+        <p>Members are invited to submit a photo of a sobriety chip that carries meaning, whether it marks a first day, a hard-won anniversary, a special meeting, or a moment that helped you keep going. No names will be displayed.</p>
       </div>
 
       <div class="chip-submission-details">
@@ -500,29 +529,41 @@
           <h3>All Milestones Are Welcome</h3>
           <p>Every sober milestone matters here, from 24-hour chips through long-term anniversary chips. If the chip tells part of your recovery story, it belongs in this gallery.</p>
           <ul>
-            <li>Send a clear photo of the chip only.</li>
-            <li>Include an optional anonymous description of 200 characters or fewer.</li>
-            <li>Please avoid faces, full names, phone numbers, license plates, or anything personally identifying in the photo.</li>
+            <li>Send a clear photo of a meaningful sobriety chip.</li>
+            <li>Submissions are anonymous and reviewed before publication.</li>
+            <li>Please avoid names, faces, phone numbers, license plates, or anything personally identifying.</li>
           </ul>
         </div>
 
         <div class="chip-submit-card">
           <h3>Submit Your Chip</h3>
-          <p>Email your chip photo to the Arrid Club. Attach the photo and, if you would like, include an anonymous description of 200 characters or fewer about what the chip means to you.</p>
-          <a class="chip-submit-btn" href="mailto:contact@arridclub.com?subject=Anonymous%20Sobriety%20Chip%20Submission&body=Please%20attach%20your%20sobriety%20chip%20photo%20to%20this%20email.%0A%0AOptional%20anonymous%20description%20%28200%20characters%20maximum%29%3A%0A%0APlease%20do%20not%20include%20names%20or%20identifying%20information.%0A%0AAll%20photos%20are%20reviewed%20before%20publication%20for%20privacy%20and%20appropriateness.">Submit Your Chip</a>
+          <p>Email your chip photo to the Arrid Club. Attach a clear photo of a meaningful sobriety chip. Submissions are anonymous and reviewed before publication, so please do not include names or identifying information.</p>
+          <a class="chip-submit-btn" href="mailto:contact@arridclub.com?subject=Anonymous%20Sobriety%20Chip%20Submission&body=Please%20attach%20a%20clear%20photo%20of%20a%20meaningful%20sobriety%20chip%20to%20this%20email.%0A%0ASubmissions%20are%20anonymous%20and%20reviewed%20before%20publication.%0A%0APlease%20do%20not%20include%20names%20or%20identifying%20information%20in%20the%20photo%20or%20email.">Submit Your Chip</a>
         </div>
       </div>
 
       <div class="chip-gallery" aria-label="Approved sobriety chip photo gallery">
         <div class="chip-card-grid">
           <article class="chip-card">
-            <img src="sobriety-chips/chip-001.webp" alt="Five year sobriety chip">
-            <div class="chip-card-body">
-              <span class="chip-label">Milestone</span>
-              <h3>5 Years</h3>
-              <p>A gift from a dear friend of more than 20 years who stood by me through my lowest moments. A reminder of perseverance, hope, and the people who never give up on us.</p>
-            </div>
+            <a class="chip-photo-link" href="sobriety-chips/chip-001.webp" target="_blank" rel="noopener" aria-label="View sobriety chip photo larger">
+              <img src="sobriety-chips/chip-001.webp" alt="Anonymous sobriety chip submission">
+            </a>
           </article>
+          <a class="chip-card chip-invite-card" href="mailto:contact@arridclub.com?subject=Anonymous%20Sobriety%20Chip%20Submission&body=Please%20attach%20a%20clear%20photo%20of%20a%20meaningful%20sobriety%20chip%20to%20this%20email.%0A%0ASubmissions%20are%20anonymous%20and%20reviewed%20before%20publication.%0A%0APlease%20do%20not%20include%20names%20or%20identifying%20information%20in%20the%20photo%20or%20email." aria-label="Share your sobriety chip photo">
+            <span class="invite-plus" aria-hidden="true">+</span>
+            <span class="invite-text">Share Your Chip</span>
+            <span class="invite-note">Anonymous submission</span>
+          </a>
+          <a class="chip-card chip-invite-card" href="mailto:contact@arridclub.com?subject=Anonymous%20Sobriety%20Chip%20Submission&body=Please%20attach%20a%20clear%20photo%20of%20a%20meaningful%20sobriety%20chip%20to%20this%20email.%0A%0ASubmissions%20are%20anonymous%20and%20reviewed%20before%20publication.%0A%0APlease%20do%20not%20include%20names%20or%20identifying%20information%20in%20the%20photo%20or%20email." aria-label="Share your sobriety chip photo">
+            <span class="invite-plus" aria-hidden="true">+</span>
+            <span class="invite-text">Share Your Chip</span>
+            <span class="invite-note">Anonymous submission</span>
+          </a>
+          <a class="chip-card chip-invite-card" href="mailto:contact@arridclub.com?subject=Anonymous%20Sobriety%20Chip%20Submission&body=Please%20attach%20a%20clear%20photo%20of%20a%20meaningful%20sobriety%20chip%20to%20this%20email.%0A%0ASubmissions%20are%20anonymous%20and%20reviewed%20before%20publication.%0A%0APlease%20do%20not%20include%20names%20or%20identifying%20information%20in%20the%20photo%20or%20email." aria-label="Share your sobriety chip photo">
+            <span class="invite-plus" aria-hidden="true">+</span>
+            <span class="invite-text">Share Your Chip</span>
+            <span class="invite-note">Anonymous submission</span>
+          </a>
         </div>
       </div>
 
