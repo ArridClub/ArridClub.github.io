@@ -388,13 +388,37 @@
     .chip-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (max-width: 480px) {
-    .activity-grid { grid-template-columns: 1fr; }
+    .activity-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .chip-gallery-intro { padding: 1.65rem 1.2rem 1.3rem; }
     .chip-submission-details { padding: 0 0.85rem 0.85rem; }
     .chip-detail-card,
     .chip-submit-card { padding: 1.15rem; }
     .chip-gallery { padding: 0.85rem; }
     .chip-card-grid { grid-template-columns: 1fr; }
+  }
+
+  .chip-shortcut { text-align: center; margin: 0 0 1.5rem; }
+  #share-your-chip { scroll-margin-top: 6rem; min-width: 0; }
+  .chip-upload { margin-bottom: 1rem; min-width: 0; }
+  .chip-upload label { display: block; font-weight: 700; margin-bottom: .5rem; color: var(--deep); }
+  .chip-upload input { display: block; width: 100%; font: inherit; font-size: .85rem; }
+  .chip-upload input::file-selector-button, .chip-remove { padding: .65rem .6rem; border: 1px solid var(--gold); border-radius: 8px; background: #f5ede0; color: var(--deep); cursor: pointer; }
+  .chip-preview { width: 100%; max-height: 180px; object-fit: contain; margin: .5rem 0; border-radius: 8px; }
+  .chip-submit-btn { border: 0; cursor: pointer; font-family: inherit; }
+  .chip-submit-btn:disabled { opacity: .6; cursor: wait; }
+  #chip-files { border: 0; padding: 0; margin: 0; min-width: 0; }
+  .chip-honey, [hidden] { display: none !important; }
+  .chip-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  #chip-form .chip-privacy { font-weight: 400; }
+  #chip-status, .photo-feedback { overflow-wrap: anywhere; }
+  #chip-form .photo-feedback { margin: .35rem 0; }
+  #share-your-chip :focus-visible, .chip-shortcut a:focus-visible { outline: 3px solid var(--rust); outline-offset: 4px; }
+  @media (max-width: 700px) {
+    .activity-grid { gap: .75rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .activity-card { padding: 1rem .65rem; }
+    .activity-card .act-icon { font-size: 2rem; margin-bottom: .4rem; }
+    .activity-card h3 { font-size: 1rem; line-height: 1.25; min-height: 2.5em; }
+    .activity-card p { font-size: .82rem; line-height: 1.4; }
   }
 </style>
 </head>
@@ -433,6 +457,8 @@
 <!-- CONTENT -->
 <div class="fellowship-container">
 
+  <p class="chip-shortcut"><a class="chip-submit-btn" href="#share-your-chip">Share Your Chip ↓</a></p>
+
   <!-- Intro -->
   <div class="fellowship-intro">
     <p>One of the biggest misconceptions about recovery is that getting sober means giving up fun. At the Arrid Club, we know better. Recovery opens the door to real friendships, genuine laughter, and a community that shows up for each other, not just in meetings, but in life.</p>
@@ -443,51 +469,12 @@
   <p class="section-sub" style="text-align:center; margin-bottom:1.75rem;">A glimpse of life in recovery at the Arrid Club</p>
 
   <div class="activity-grid">
-    <div class="activity-card">
-      <span class="act-icon">🍳</span>
-      <h3>Pancake Breakfasts</h3>
-      <p>Saturday morning fundraisers with good food, strong coffee, and even better conversation. A favorite tradition.</p>
-    </div>
-    <div class="activity-card">
-      <span class="act-icon">🍖</span>
-      <h3>BBQs & Cookouts</h3>
-      <p>Backyard-style gatherings with food, lawn games, and the kind of easy fellowship that reminds you why you got sober.</p>
-    </div>
-    <div class="activity-card">
-      <span class="act-icon">💃</span>
-      <h3>Dance Nights</h3>
-      <p>Dance nights featuring live music or a DJ, where people come together for an evening of fun, laughter, and fellowship.</p>
-    </div>
-    <div class="activity-card">
-      <span class="act-icon">⛳</span>
-      <h3>Golf Outings</h3>
-      <p>Casual rounds for all skill levels. Less about the score, more about spending a few hours outside with good people.</p>
-    </div>
-    <div class="activity-card">
-      <span class="act-icon">🎂</span>
-      <h3>Anniversary Celebrations</h3>
-      <p>We celebrate sobriety milestones together, whether it's 30 days or 30 years, because every day sober is worth honoring.</p>
-    </div>
-    <div class="activity-card">
-      <span class="act-icon">🎄</span>
-      <h3>Holiday Gatherings</h3>
-      <p>Nobody should spend the holidays alone. Our holiday events are open to all and full of warmth, food, and fellowship.</p>
-    </div>
-    <div class="activity-card">
-      <span class="act-icon">🏕️</span>
-      <h3>Campouts</h3>
-      <p>Recovery under the stars. Campfire meetings, fresh air, and a reminder that the natural world is worth being sober for.</p>
-    </div>
-    <div class="activity-card">
-      <span class="act-icon">🛠️</span>
-      <h3>Club Workdays</h3>
-      <p>Pitching in to keep the club running. Service is a cornerstone of recovery, and there's something deeply satisfying about working alongside others.</p>
-    </div>
-    <div class="activity-card">
-      <span class="act-icon">🎤</span>
-      <h3>Speaker Events</h3>
-      <p>Inspiring stories from people who've been through it. Some funny, some moving, and always honest. A great place to bring newcomers.</p>
-    </div>
+    <div class="activity-card"><span class="act-icon" aria-hidden="true">🍳</span><h3>Food &amp; Fellowship</h3><p>Pancake breakfasts, BBQs, and good conversation.</p></div>
+    <div class="activity-card"><span class="act-icon" aria-hidden="true">🎂</span><h3>Celebrations</h3><p>Sobriety anniversaries and welcoming holiday gatherings.</p></div>
+    <div class="activity-card"><span class="act-icon" aria-hidden="true">💃</span><h3>Social Events</h3><p>Dancing, music, laughter, and time together.</p></div>
+    <div class="activity-card"><span class="act-icon" aria-hidden="true">🏕️</span><h3>Outings &amp; Adventures</h3><p>Golf outings, campouts, and fresh-air fellowship.</p></div>
+    <div class="activity-card"><span class="act-icon" aria-hidden="true">🛠️</span><h3>Service &amp; Community</h3><p>Club workdays and giving back together.</p></div>
+    <div class="activity-card"><span class="act-icon" aria-hidden="true">🎤</span><h3>Speaker Events</h3><p>Honest recovery stories. Newcomers welcome.</p></div>
   </div>
 
   <!-- Anonymous chip gallery/submission section -->
@@ -512,10 +499,36 @@
           </ul>
         </div>
 
-        <div class="chip-submit-card">
-          <h3>Submit Your Chip</h3>
-          <p>Email your chip photo to the Arrid Club. Attach a clear photo of a meaningful sobriety chip. Submissions are anonymous and reviewed before publication, so please do not include names or identifying information.</p>
-          <a class="chip-submit-btn" href="mailto:contact@arridclub.com?subject=Anonymous%20Sobriety%20Chip%20Submission&body=Please%20attach%20a%20clear%20photo%20of%20a%20meaningful%20sobriety%20chip%20to%20this%20email.%0A%0ASubmissions%20are%20anonymous%20and%20reviewed%20before%20publication.%0A%0APlease%20do%20not%20include%20names%20or%20identifying%20information%20in%20the%20photo%20or%20email.">Submit Your Chip</a>
+        <div class="chip-submit-card" id="share-your-chip" tabindex="-1">
+          <h3>Share Your Chip</h3>
+          <div id="chip-success" role="status" hidden><h3>Photo Received!</h3><p>Thank you for sharing. Your submission will be reviewed before appearing on the website.</p></div>
+          <form id="chip-form" action="https://formsubmit.co/contact@arridclub.com" method="POST" enctype="multipart/form-data" target="_blank" rel="noopener">
+            <input type="hidden" name="_subject" value="New Arrid Club Chip Submission">
+            <input type="hidden" name="_next" value="https://arridclub.com/fellowship.html?chip=received#share-your-chip">
+            <input type="text" name="_honey" class="chip-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <p id="chip-upload-help">Take or choose a photo. JPG, PNG, WebP, or HEIC/HEIF where your browser can preview it. Maximum 10 MB total for both photos. Choose again to replace a photo.</p>
+            <fieldset id="chip-files"><legend class="chip-sr-only">Chip photos</legend>
+              <div class="chip-upload">
+                <label for="chip-front">Front of chip — required</label>
+                <input id="chip-front" type="file" name="attachment_front" accept="image/jpeg,image/png,image/webp,image/heic,image/heif,.heic,.heif" required aria-describedby="chip-upload-help front-feedback">
+                <p id="front-feedback" class="photo-feedback" aria-live="polite"></p>
+                <img id="front-preview" class="chip-preview" alt="Selected front of chip" hidden>
+                <button type="button" class="chip-remove" data-side="front" hidden>Remove front photo</button>
+              </div>
+              <div class="chip-upload">
+                <label for="chip-back">Back of chip — optional</label>
+                <input id="chip-back" type="file" name="attachment_back" accept="image/jpeg,image/png,image/webp,image/heic,image/heif,.heic,.heif"  aria-describedby="chip-upload-help back-feedback">
+                <p id="back-feedback" class="photo-feedback" aria-live="polite"></p>
+                <img id="back-preview" class="chip-preview" alt="Selected back of chip" hidden>
+                <button type="button" class="chip-remove" data-side="back" hidden>Remove back photo</button>
+              </div>
+            </fieldset>
+            <p class="chip-privacy">🔒 Submissions are anonymous and reviewed before appearing on the website. Please avoid faces, names, license plates, or other identifying information.</p>
+            <p>A secure submission tab will open for the spam check and confirmation. Keep this page open if you need to retry.</p>
+            <button class="chip-submit-btn" id="chip-send" type="submit">Submit Your Chip</button>
+            <p id="chip-status" role="status" aria-live="polite"></p>
+            <noscript><p>Enable JavaScript to preview and validate your photos before submitting.</p></noscript>
+          </form>
         </div>
       </div>
 
@@ -526,17 +539,17 @@
               <img src="sobriety-chips/chip-001.webp" alt="Anonymous sobriety chip submission">
             </a>
           </article>
-          <a class="chip-card chip-invite-card" href="mailto:contact@arridclub.com?subject=Anonymous%20Sobriety%20Chip%20Submission&body=Please%20attach%20a%20clear%20photo%20of%20a%20meaningful%20sobriety%20chip%20to%20this%20email.%0A%0ASubmissions%20are%20anonymous%20and%20reviewed%20before%20publication.%0A%0APlease%20do%20not%20include%20names%20or%20identifying%20information%20in%20the%20photo%20or%20email." aria-label="Share your sobriety chip photo">
+          <a class="chip-card chip-invite-card" href="#share-your-chip" aria-label="Share your sobriety chip photo">
             <span class="invite-plus" aria-hidden="true">+</span>
             <span class="invite-text">Share Your Chip</span>
             <span class="invite-note">Anonymous submission</span>
           </a>
-          <a class="chip-card chip-invite-card" href="mailto:contact@arridclub.com?subject=Anonymous%20Sobriety%20Chip%20Submission&body=Please%20attach%20a%20clear%20photo%20of%20a%20meaningful%20sobriety%20chip%20to%20this%20email.%0A%0ASubmissions%20are%20anonymous%20and%20reviewed%20before%20publication.%0A%0APlease%20do%20not%20include%20names%20or%20identifying%20information%20in%20the%20photo%20or%20email." aria-label="Share your sobriety chip photo">
+          <a class="chip-card chip-invite-card" href="#share-your-chip" aria-label="Share your sobriety chip photo">
             <span class="invite-plus" aria-hidden="true">+</span>
             <span class="invite-text">Share Your Chip</span>
             <span class="invite-note">Anonymous submission</span>
           </a>
-          <a class="chip-card chip-invite-card" href="mailto:contact@arridclub.com?subject=Anonymous%20Sobriety%20Chip%20Submission&body=Please%20attach%20a%20clear%20photo%20of%20a%20meaningful%20sobriety%20chip%20to%20this%20email.%0A%0ASubmissions%20are%20anonymous%20and%20reviewed%20before%20publication.%0A%0APlease%20do%20not%20include%20names%20or%20identifying%20information%20in%20the%20photo%20or%20email." aria-label="Share your sobriety chip photo">
+          <a class="chip-card chip-invite-card" href="#share-your-chip" aria-label="Share your sobriety chip photo">
             <span class="invite-plus" aria-hidden="true">+</span>
             <span class="invite-text">Share Your Chip</span>
             <span class="invite-note">Anonymous submission</span>
@@ -602,5 +615,72 @@
   <div class="footer-copy">Arrid Club California © 2026 · Serving the San Jacinto Valley since 1973</div>
 </footer>
 
+<script>
+(() => {
+  const form = document.getElementById('chip-form');
+  const status = document.getElementById('chip-status');
+  const send = document.getElementById('chip-send');
+  const limit = 10000000;
+  const states = {};
+  const sides = ['front', 'back'];
+  const inputs = sides.map(side => document.getElementById('chip-' + side));
+  const updateTotal = () => {
+    const oversized = inputs.reduce((total, input) => total + (input.files[0]?.size || 0), 0) > limit;
+    inputs[0].setCustomValidity(oversized ? 'Please choose smaller photos: both images together must be 10 MB or less.' : (states.front?.error || ''));
+    if (oversized) status.textContent = 'Both photos together exceed 10 MB. Replace one with a smaller photo or remove the optional back.';
+    return !oversized;
+  };
+  sides.forEach((side, index) => {
+    const input = inputs[index];
+    const preview = document.getElementById(side + '-preview');
+    const feedback = document.getElementById(side + '-feedback');
+    const remove = form.querySelector('[data-side="' + side + '"]');
+    let generation = 0;
+    input.addEventListener('change', async () => {
+      const current = ++generation;
+      if (states[side]?.url) URL.revokeObjectURL(states[side].url);
+      states[side] = { error: '', pending: false };
+      input.setCustomValidity('');
+      preview.hidden = true;
+      preview.removeAttribute('src');
+      feedback.textContent = '';
+      status.textContent = '';
+      const file = input.files[0];
+      remove.hidden = !file;
+      if (file) {
+        let error = '';
+        if (!/\.(jpe?g|png|webp|heic|heif)$/i.test(file.name)) error = 'Choose a JPG, PNG, WebP, or supported HEIC/HEIF photo.';
+        else if (!file.size || file.size > limit) error = 'Choose a non-empty photo under 10 MB.';
+        else {
+          states[side].pending = true;
+          send.disabled = true;
+          const url = URL.createObjectURL(file);
+          states[side].url = url;
+          const probe = new Image();
+          probe.src = url;
+          try { await probe.decode(); } catch { error = 'This photo cannot be previewed. Please choose a JPG, PNG, or WebP version.'; }
+          if (current !== generation) return;
+          states[side].pending = false;
+          if (!error) { preview.src = url; preview.hidden = false; feedback.textContent = 'Photo ready. Choose another file to replace it.'; }
+        }
+        states[side].error = error;
+        input.setCustomValidity(error);
+        if (error) feedback.textContent = error;
+      }
+      send.disabled = sides.some(key => states[key]?.pending);
+      updateTotal();
+    });
+    remove.addEventListener('click', () => { input.value = ''; input.dispatchEvent(new Event('change')); input.focus(); });
+  });
+  form.addEventListener('submit', event => {
+    if (!updateTotal() || !form.reportValidity() || sides.some(side => states[side]?.pending)) { event.preventDefault(); return; }
+    status.textContent = 'Finish the spam check in the new tab. Your photos stay selected here. If submission fails or the tab does not open, return here and select Submit Your Chip to retry.';
+  });
+  if (new URLSearchParams(location.search).get('chip') === 'received') {
+    document.getElementById('chip-success').hidden = false;
+    history.replaceState(null, '', location.pathname + '#share-your-chip');
+  }
+})();
+</script>
 </body>
 </html>
