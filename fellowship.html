@@ -433,13 +433,15 @@
 .event-feature img {height:auto;}
 .event-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;}
 .event-grid .event-photo {aspect-ratio:4/3;}
-.event-viewer {position:fixed;inset:0;margin:0;width:100%;max-width:none;height:100%;height:100dvh;max-height:none;border:0;padding:1rem;background:#17130f;color:#fff;overflow:auto;}
-.event-viewer[open] {display:flex;flex-direction:column;gap:.65rem;}
+.event-viewer {position:fixed;inset:0;margin:0;width:100%;max-width:none;height:100%;height:100dvh;max-height:none;border:0;padding:1rem;background:#17130f;color:#fff;overflow:auto;box-sizing:border-box;}
+.event-viewer[open] {display:grid;grid-template-rows:auto minmax(0,1fr) auto auto auto;gap:.65rem;}
 .event-viewer::backdrop {background:#17130f;}
 .event-toolbar {display:flex;justify-content:center;gap:.6rem;flex-wrap:wrap;flex-shrink:0;}
 .event-viewer button,.event-direct {font:inherit;min-height:44px;padding:.6rem .9rem;background:#f2e6c9;color:#2c1a0e;border:0;border-radius:8px;cursor:pointer;}
-.event-image-stage {flex:1;min-height:80px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.event-large {display:block;max-width:100%;max-height:100%;object-fit:contain;width:auto;height:auto;}
+.event-image-stage {position:relative;min-height:0;overflow:hidden;}
+.event-large {display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:contain;}
+.event-large[hidden] {display:none !important;}
+.event-caption {display:block;min-height:1.4em;margin:0;color:#fff;font-size:1rem;}
 .event-caption,.event-load,.event-recovery {text-align:center;line-height:1.4;flex-shrink:0;}
 .event-direct {display:inline-block;text-decoration:underline;}
 @media(max-width:700px){.event-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;}}
@@ -738,7 +740,7 @@
   status.textContent='Loading photo…';
   dialog.querySelector('.event-direct').href=link.href;
   const probe=new Image();
-  probe.onload=()=>{if(token!==request || !dialog.open)return;img.src=probe.src;img.hidden=false;status.textContent='';};
+  probe.onload=async ()=>{if(token!==request || !dialog.open)return;img.src=probe.src;try {await img.decode();} catch {if(token===request && dialog.open){status.textContent='This photo could not load.';recovery.hidden=false;}return;}if(token!==request || !dialog.open)return;img.hidden=false;status.textContent='';};
   probe.onerror=()=>{if(token!==request || !dialog.open)return;status.textContent='This photo could not load.';recovery.hidden=false;};
   probe.src=link.href;
  }
