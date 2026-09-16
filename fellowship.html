@@ -734,7 +734,7 @@
   index=(next+photos.length)%photos.length;
   const link=photos[index],alt=link.querySelector('img').alt,token=++request;
   img.hidden=true;img.removeAttribute('src');img.alt=alt;recovery.hidden=true;
-  caption.textContent=`Photo ${index+1} of ${photos.length} — ${alt}`;
+  caption.textContent=`Photo ${index+1} of ${photos.length}`;
   status.textContent='Loading photo…';
   dialog.querySelector('.event-direct').href=link.href;
   const probe=new Image();
