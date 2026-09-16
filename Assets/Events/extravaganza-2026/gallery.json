@@ -1,0 +1,340 @@
+{
+  "event": "Arrid Club Extravaganza 2026",
+  "photos": [
+    {
+      "original": "extravaganza-04.jpg",
+      "alt": "Four adults and a child posing together on the decorated patio at Extravaganza 2026.",
+      "featured": true,
+      "variants": {
+        "full2048": {
+          "path": "full/extravaganza-04.webp",
+          "width": 2048,
+          "height": 1536,
+          "bytes": 349240
+        },
+        "thumbs480": {
+          "path": "thumbs/extravaganza-04.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 35650
+        },
+        "featured960": {
+          "path": "featured/extravaganza-04-960.webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 157926
+        },
+        "featured1440": {
+          "path": "featured/extravaganza-04-1440.webp",
+          "width": 1440,
+          "height": 1080,
+          "bytes": 299746
+        }
+      }
+    },
+    {
+      "original": "extravaganza-17.jpg",
+      "alt": "Two guests posing with a microphone, one wearing a wide purple hat.",
+      "featured": false,
+      "variants": {
+        "full2048": {
+          "path": "full/extravaganza-17.webp",
+          "width": 2048,
+          "height": 1536,
+          "bytes": 150422
+        },
+        "thumbs480": {
+          "path": "thumbs/extravaganza-17.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 18552
+        }
+      }
+    },
+    {
+      "original": "extravaganza-05.jpg",
+      "alt": "Guests chatting at tables across the covered patio.",
+      "featured": false,
+      "variants": {
+        "full2048": {
+          "path": "full/extravaganza-05.webp",
+          "width": 2048,
+          "height": 1536,
+          "bytes": 364454
+        },
+        "thumbs480": {
+          "path": "thumbs/extravaganza-05.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 35910
+        }
+      }
+    },
+    {
+      "original": "extravaganza-01.jpg",
+      "alt": "Three guests seated around a patio table beneath red, white and black balloons.",
+      "featured": false,
+      "variants": {
+        "full2048": {
+          "path": "full/extravaganza-01.webp",
+          "width": 2048,
+          "height": 1536,
+          "bytes": 268170
+        },
+        "thumbs480": {
+          "path": "thumbs/extravaganza-01.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 28934
+        }
+      }
+    },
+    {
+      "original": "extravaganza-10.jpg",
+      "alt": "Guests gathered beneath balloons, with a guest in a purple-and-white dress in front.",
+      "featured": false,
+      "variants": {
+        "full2048": {
+          "path": "full/extravaganza-10.webp",
+          "width": 2048,
+          "height": 1536,
+          "bytes": 325702
+        },
+        "thumbs480": {
+          "path": "thumbs/extravaganza-10.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 37324
+        }
+      }
+    },
+    {
+      "original": "extravaganza-08.jpg",
+      "alt": "Guests talking beside a patio table scattered with red raffle tickets.",
+      "featured": false,
+      "variants": {
+        "full2048": {
+          "path": "full/extravaganza-08.webp",
+          "width": 2048,
+          "height": 1536,
+          "bytes": 269252
+        },
+        "thumbs480": {
+          "path": "thumbs/extravaganza-08.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 30894
+        }
+      }
+    },
+    {
+      "original": "extravaganza-18.jpg",
+      "alt": "Four guests sharing food and conversation around a patio table.",
+      "featured": false,
+      "variants": {
+        "full2048": {
+          "path": "full/extravaganza-18.webp",
+          "width": 2048,
+          "height": 1536,
+          "bytes": 227978
+        },
+        "thumbs480": {
+          "path": "thumbs/extravaganza-18.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 27588
+        }
+      }
+    },
+    {
+      "original": "extravaganza-19.jpg",
+      "alt": "Two seated guests beside a wrapped gift basket and red raffle container.",
+      "featured": false,
+      "variants": {
+        "full2048": {
+          "path": "full/extravaganza-19.webp",
+          "width": 2048,
+          "height": 1536,
+          "bytes": 275484
+        },
+        "thumbs480": {
+          "path": "thumbs/extravaganza-19.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 29242
+        }
+      }
+    },
+    {
+      "original": "extravaganza-21.jpg",
+      "alt": "Three guests seated at a patio table with raffle tickets and drinks.",
+      "featured": false,
+      "variants": {
+        "full2048": {
+          "path": "full/extravaganza-21.webp",
+          "width": 2048,
+          "height": 1536,
+          "bytes": 358698
+        },
+        "thumbs480": {
+          "path": "thumbs/extravaganza-21.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 31202
+        }
+      }
+    },
+    {
+      "original": "extravaganza-20.jpg",
+      "alt": "Guests standing and chatting near the patio entrance.",
+      "featured": false,
+      "variants": {
+        "full2048": {
+          "path": "full/extravaganza-20.webp",
+          "width": 2048,
+          "height": 1536,
+          "bytes": 261702
+        },
+        "thumbs480": {
+          "path": "thumbs/extravaganza-20.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 25558
+        }
+      }
+    },
+    {
+      "original": "extravaganza-03.jpg",
+      "alt": "Three people gathered around an outdoor grill beside the clubhouse.",
+      "featured": false,
+      "variants": {
+        "full2048": {
+          "path": "full/extravaganza-03.webp",
+          "width": 2048,
+          "height": 1536,
+          "bytes": 357512
+        },
+        "thumbs480": {
+          "path": "thumbs/extravaganza-03.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 37596
+        }
+      }
+    },
+    {
+      "original": "extravaganza-22.jpg",
+      "alt": "Two guests beside raffle containers and boxed prizes on an outdoor table.",
+      "featured": false,
+      "variants": {
+        "full2048": {
+          "path": "full/extravaganza-22.webp",
+          "width": 2048,
+          "height": 1536,
+          "bytes": 313026
+        },
+        "thumbs480": {
+          "path": "thumbs/extravaganza-22.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 36596
+        }
+      }
+    },
+    {
+      "original": "extravaganza-23.jpg",
+      "alt": "Adults and children gathered around a blue snow-cone machine outdoors.",
+      "featured": false,
+      "variants": {
+        "full2048": {
+          "path": "full/extravaganza-23.webp",
+          "width": 2048,
+          "height": 1536,
+          "bytes": 389580
+        },
+        "thumbs480": {
+          "path": "thumbs/extravaganza-23.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 36972
+        }
+      }
+    },
+    {
+      "original": "extravaganza-06.jpg",
+      "alt": "Two guests posing beside balloons on the patio, one wearing an Arrid Club shirt.",
+      "featured": false,
+      "variants": {
+        "full2048": {
+          "path": "full/extravaganza-06.webp",
+          "width": 2048,
+          "height": 1536,
+          "bytes": 182242
+        },
+        "thumbs480": {
+          "path": "thumbs/extravaganza-06.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 22914
+        }
+      }
+    },
+    {
+      "original": "extravaganza-07.jpg",
+      "alt": "Two guests posing with the green golf course behind them.",
+      "featured": false,
+      "variants": {
+        "full2048": {
+          "path": "full/extravaganza-07.webp",
+          "width": 2048,
+          "height": 1536,
+          "bytes": 186914
+        },
+        "thumbs480": {
+          "path": "thumbs/extravaganza-07.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 21178
+        }
+      }
+    },
+    {
+      "original": "extravaganza-02.jpg",
+      "alt": "Two guests posing beneath a tree, one wearing an Arrid Club shirt and dark hat.",
+      "featured": false,
+      "variants": {
+        "full2048": {
+          "path": "full/extravaganza-02.webp",
+          "width": 1536,
+          "height": 2048,
+          "bytes": 326798
+        },
+        "thumbs480": {
+          "path": "thumbs/extravaganza-02.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 36954
+        }
+      }
+    },
+    {
+      "original": "extravaganza-14.jpg",
+      "alt": "Golden Era Golf Course sign on a stone wall with hills behind it.",
+      "featured": false,
+      "variants": {
+        "full2048": {
+          "path": "full/extravaganza-14.webp",
+          "width": 1536,
+          "height": 2048,
+          "bytes": 801174
+        },
+        "thumbs480": {
+          "path": "thumbs/extravaganza-14.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 50050
+        }
+      }
+    }
+  ]
+}
