@@ -265,3 +265,11 @@ a { color: inherit; text-decoration: none; }
   margin: 0 auto;
   padding: 3rem 1.5rem;
 }
+
+.event-photo-credit {
+  margin-top: .65rem;
+  font-size: .78rem;
+  font-style: italic;
+  color: #7a6050;
+  text-align: right;
+}
