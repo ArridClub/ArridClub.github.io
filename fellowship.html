@@ -42,7 +42,8 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@300;400;600;700&display=optional" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@300;400;600;700&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@300;400;600;700&display=optional" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="css/style.css">
 <style>
   /* FELLOWSHIP PAGE STYLES */
@@ -447,9 +448,18 @@
 @media(max-width:700px){.event-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;}}
 @media(max-width:500px){.event-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.event-viewer{padding:.65rem;}}
 @media(max-width:359px){.event-grid{grid-template-columns:1fr;}}
+
+/* Fellowship-only improvements; shared styles and gallery behavior are preserved. */
+.fellowship-page { font-family: 'Source Sans 3', Arial, sans-serif; }
+.fellowship-page .quote-section { background: #783318; }
+.fellowship-page .quote-section .section-label { color: #f2d58a; }
+.fellowship-page .quote-card blockquote { color: #fff3d6; }
+.fellowship-page .quote-card cite { color: #ffe3a3; }
+.fellowship-page .chip-photo-link img { height: auto; }
+.fellowship-page .footer-copy { opacity: 0.75; }
 </style>
 </head>
-<body>
+<body class="fellowship-page">
 
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
@@ -464,7 +474,7 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="meetings.html">Meetings</a></li>
       <li><a href="events.html">Events</a></li>
-      <li><a href="fellowship.html" class="active">Fellowship</a></li>
+      <li><a href="fellowship.html" class="active" aria-current="page">Fellowship</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="guidelines.html">Guidelines</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -578,7 +588,7 @@
         <div class="chip-card-grid">
           <article class="chip-card">
             <a class="chip-photo-link" href="Assets/images/fellowship/sobriety-chips/chip-001.webp" target="_blank" rel="noopener" aria-label="View sobriety chip photo larger">
-              <img src="Assets/images/fellowship/sobriety-chips/chip-001.webp" alt="Anonymous sobriety chip submission">
+              <img src="Assets/images/fellowship/sobriety-chips/chip-001-360.webp" srcset="Assets/images/fellowship/sobriety-chips/chip-001-360.webp 360w, Assets/images/fellowship/sobriety-chips/chip-001-720.webp 720w" sizes="(max-width: 480px) calc(100vw - 102px), (max-width: 700px) calc((100vw - 154px) / 2), 180px" width="1539" height="1022" loading="lazy" decoding="async" alt="Anonymous sobriety chip submission">
             </a>
           </article>
           <a class="chip-card chip-invite-card" href="#share-your-chip" aria-label="Share your sobriety chip photo">
