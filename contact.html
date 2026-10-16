@@ -124,20 +124,6 @@
     font-weight: 300;
   }
 
-  /* Map embed */
-  .map-wrap {
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 2px 12px rgba(44,26,14,0.12);
-    margin-bottom: 2rem;
-    height: 360px;
-  }
-  .map-wrap iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-
   /* What to Expect carousel */
   .expect-section {
     margin-bottom: 2rem;
@@ -340,15 +326,6 @@
     <a href="https://www.facebook.com/groups/1225924959475339" target="_blank" rel="noopener noreferrer" class="directions-btn facebook-btn">Visit our Facebook Group</a>
   </section>
 
-  <!-- Map -->
-  <section class="map-wrap" aria-label="Map showing the Arrid Club location">
-    <div class="map-placeholder" id="map-placeholder">
-      <p><strong>The Arrid Club</strong><br>120 S. Harvard St · Hemet, CA 92543</p>
-      <button type="button" class="directions-btn" id="load-map" hidden>Load interactive map</button>
-      <a href="https://www.google.com/maps/search/?api=1&amp;query=120+S+Harvard+St%2C+Hemet%2C+CA+92543" target="_blank" rel="noopener noreferrer">Open directions in Google Maps ↗</a>
-    </div>
-  </section>
-
   <!-- What to Expect carousel -->
   <section class="expect-section" aria-labelledby="expect-heading">
     <h2 class="expect-heading" id="expect-heading">What to Expect When You Arrive</h2>
@@ -402,18 +379,6 @@
 </footer>
 
 <script>
-  const mapButton = document.getElementById('load-map');
-  mapButton.hidden = false;
-  mapButton.addEventListener('click', () => {
-    const frame = document.createElement('iframe');
-    frame.title = 'Arrid Club location map';
-    frame.src = 'https://www.google.com/maps?q=120+S+Harvard+St%2C+Hemet%2C+CA+92543&output=embed';
-    frame.allowFullscreen = true;
-    frame.referrerPolicy = 'no-referrer-when-downgrade';
-    document.getElementById('map-placeholder').replaceWith(frame);
-    frame.focus();
-  }, { once: true });
-
   let current = 0;
   const total = 3;
   function updateCarousel() {
