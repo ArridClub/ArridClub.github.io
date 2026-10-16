@@ -298,3 +298,54 @@ a { color: inherit; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
   .about-page *, .about-page *::before, .about-page *::after { transition: none; }
 }
+
+/* Contact-only improvements; preserve shared and About-page styles above. */
+.contact-page { font-family: 'Source Sans 3', Arial, sans-serif; }
+.contact-page #main-content { scroll-margin-top: 60px; }
+.contact-page .contact-card .directions-btn { color: var(--deep); }
+.contact-page .directions-btn {
+  min-height: 44px; display: inline-flex; align-items: center; justify-content: center;
+}
+.contact-page .facebook-btn { background: #1565c0; }
+.contact-page .facebook-btn:hover { background: #104f98; }
+.contact-page .expect-sub { color: #75563c; }
+.contact-page .footer-copy { opacity: 0.75; }
+.contact-page :is(a, button):focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+.contact-page .nav-toggle { min-width: 44px; min-height: 44px; justify-content: center; align-items: center; }
+.contact-page .carousel-dots { bottom: 4px; gap: 0; }
+.contact-page .dot {
+  width: 44px; height: 44px; background: transparent;
+  display: grid; place-items: center; color: white;
+}
+.contact-page .dot::before {
+  content: ''; width: 9px; height: 9px; border-radius: 50%;
+  background: white; box-shadow: 0 0 0 2px #2c1a0e;
+}
+.contact-page .dot.active::before { background: #D4A843; }
+.contact-page .carousel-btn { background: rgba(44,26,14,0.85); }
+.contact-page .carousel-track { will-change: auto; }
+.contact-page .map-placeholder {
+  height: 100%; padding: 1.5rem; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1rem;
+  text-align: center; background: var(--sand); line-height: 1.7;
+}
+.contact-page .map-placeholder button {
+  border: 0; font-family: inherit; cursor: pointer; margin-top: 0;
+}
+.contact-page .map-placeholder [hidden] { display: none; }
+.contact-page .map-placeholder a { text-decoration: underline; text-underline-offset: 3px; }
+@media (min-width: 601px) and (max-width: 960px) {
+  .contact-page .nav-toggle { display: flex; }
+  .contact-page .nav-links {
+    display: none; position: absolute; top: 60px; left: 0; right: 0;
+    background: var(--deep); flex-direction: column;
+    padding: 1rem 1.5rem 1.5rem; gap: 0.25rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .contact-page .nav-links.open { display: flex; }
+  .contact-page .nav-links a { font-size: 0.95rem; padding: 0.6rem 0.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-page *, .contact-page *::before, .contact-page *::after { transition: none; }
+}
+.contact-page .dot.active { background: transparent; }
