@@ -158,7 +158,8 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@300;400;600;700&display=optional" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@300;400;600;700&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@300;400;600;700&display=optional" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="css/style.css">
 <style>
   /* EVENTS-SPECIFIC STYLES */
@@ -514,9 +515,40 @@
   }
   .facebook-action:hover,
   .facebook-action:focus-visible { background: rgba(255,255,255,0.2); }
+
+  /* Events-only accessibility improvements. */
+  .events-page { font-family: 'Source Sans 3', Arial, sans-serif; }
+  .events-page #main-content { scroll-margin-top: 60px; }
+  .events-page .event-date-block { background: #8a3518; color: #fff3d6; }
+  .events-page .event-month, .events-page .event-year { opacity: 1; }
+  .events-page .event-card.past { opacity: 1; }
+  .events-page .event-card.past .event-date-block { background: #665544; }
+  .events-page .event-card.past .event-tag { color: #594b3a; }
+  .events-page .event-card.past .event-title,
+  .events-page .past-events .section-title { color: #6b5844; }
+  .events-page .check-back { background: #8a3518; color: #fff3d6; }
+  .events-page .check-back p { opacity: 1; }
+  .events-page .check-back p a { text-decoration: underline; }
+  .events-page .footer-copy { opacity: 0.75; }
+  .events-page :is(a, button):focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+  .events-page .nav-toggle { min-width: 44px; min-height: 44px; justify-content: center; align-items: center; }
+  .events-page .flyer-dialog-close { width: 44px; height: 44px; }
+  @media (min-width: 601px) and (max-width: 960px) {
+    .events-page .nav-toggle { display: flex; }
+    .events-page .nav-links {
+      display: none; position: absolute; top: 60px; left: 0; right: 0;
+      background: var(--deep); flex-direction: column;
+      padding: 1rem 1.5rem 1.5rem; gap: 0.25rem;
+    }
+    .events-page .nav-links.open { display: flex; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .events-page *, .events-page *::before, .events-page *::after { transition: none; }
+  }
 </style>
 </head>
-<body>
+<body class="events-page">
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <!-- NAV -->
 <nav class="site-nav">
@@ -528,7 +560,7 @@
     <ul class="nav-links" id="primary-navigation">
       <li><a href="index.html">Home</a></li>
       <li><a href="meetings.html">Meetings</a></li>
-      <li><a href="events.html" class="active">Events</a></li>
+      <li><a href="events.html" class="active" aria-current="page">Events</a></li>
       <li><a href="fellowship.html">Fellowship</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="guidelines.html">Guidelines</a></li>
@@ -545,7 +577,7 @@
 </div>
 
 <!-- CONTENT -->
-<div class="events-container">
+<main class="events-container" id="main-content" tabindex="-1">
 
   <!-- Upcoming events -->
   <div class="events-list" id="upcoming-events">
@@ -563,7 +595,7 @@
         <h3 class="event-title">Arrid Club &quot;Extravaganza&quot; Fundraiser</h3>
         <div class="event-meta">
           <span>🕗 <strong>Time:</strong> 11:00 AM – 3:00 PM</span>
-          <span>📍 <strong>Where:</strong> <a class="event-link" href="https://www.google.com/maps/search/?api=1&amp;query=Golden+Era+Golf+Course%2C+19871+Gilman+Springs+Rd%2C+Gilman+Springs%2C+CA" target="_blank" rel="noopener noreferrer">Golden Era Golf Course, 19871 Gilman Springs Rd., Gilman Springs, CA</a> <a class="event-link map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Golden+Era+Golf+Course%2C+19871+Gilman+Springs+Rd%2C+Gilman+Springs%2C+CA" target="_blank" rel="noopener noreferrer">View Map</a></span>
+          <span>📍 <strong>Where:</strong> <a class="event-link" href="https://www.google.com/maps/search/?api=1&amp;query=Golden+Era+Golf+Course%2C+19871+Gilman+Springs+Rd%2C+Gilman+Springs%2C+CA" target="_blank" rel="noopener noreferrer">Golden Era Golf Course, 19871 Gilman Springs Rd., Gilman Springs, CA</a> <a class="event-link map-link" aria-label="View map: Golden Era Golf Course, 19871 Gilman Springs Rd, Gilman Springs, CA" href="https://www.google.com/maps/search/?api=1&amp;query=Golden+Era+Golf+Course%2C+19871+Gilman+Springs+Rd%2C+Gilman+Springs%2C+CA" target="_blank" rel="noopener noreferrer">View Map</a></span>
           <span>💵 <strong>Cost:</strong> Adults $15 · Children under 12 $5</span>
         </div>
         <div class="event-desc">Hot dogs &amp; hamburgers with sides of baked beans and coleslaw, plus a drink. Activities include a cornhole tournament, a water slide for kids, snow cones, and a 50/50 raffle with tickets available for a chance to win prizes. Music by DJ Willie Hammond. This is a fundraiser for the Arrid Club. Come out and support!</div>
@@ -585,7 +617,7 @@
           <div class="event-meta">
             <span>📅 <strong>Date:</strong> <time datetime="2026-10-10">Saturday, October 10, 2026</time></span>
             <span>🕙 <strong>Time:</strong> 10:00 AM – 2:00 PM</span>
-            <span>📍 <strong>Where:</strong> <a class="event-link" href="https://www.google.com/maps/search/?api=1&amp;query=Archives+in+Riverside%2C+7111+Arlington+Avenue%2C+Suite+B%2C+Riverside%2C+CA+92503" target="_blank" rel="noopener noreferrer">Archives in Riverside, 7111 Arlington Avenue, Suite B, Riverside, CA 92503</a> <a class="event-link map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Archives+in+Riverside%2C+7111+Arlington+Avenue%2C+Suite+B%2C+Riverside%2C+CA+92503" target="_blank" rel="noopener noreferrer">View Map</a></span>
+            <span>📍 <strong>Where:</strong> <a class="event-link" href="https://www.google.com/maps/search/?api=1&amp;query=Archives+in+Riverside%2C+7111+Arlington+Avenue%2C+Suite+B%2C+Riverside%2C+CA+92503" target="_blank" rel="noopener noreferrer">Archives in Riverside, 7111 Arlington Avenue, Suite B, Riverside, CA 92503</a> <a class="event-link map-link" aria-label="View map: Archives in Riverside, 7111 Arlington Avenue, Suite B, Riverside, CA 92503" href="https://www.google.com/maps/search/?api=1&amp;query=Archives+in+Riverside%2C+7111+Arlington+Avenue%2C+Suite+B%2C+Riverside%2C+CA+92503" target="_blank" rel="noopener noreferrer">View Map</a></span>
           </div>
           <div class="event-desc">Honoring our past. Inspiring our future. Join us for five speakers, questions and answers, and lunch. Come learn, share stories, and preserve our heritage.</div>
           <div class="event-actions">
@@ -611,7 +643,7 @@
           <div class="event-meta">
             <span>📅 <strong>Date:</strong> <time datetime="2026-10-23">Friday, October 23, 2026</time></span>
             <span>🕔 <strong>Time:</strong> 5:00 PM – 7:00 PM</span>
-            <span>📍 <strong>Where:</strong> <a class="event-link" href="https://www.google.com/maps/search/?api=1&amp;query=Presbyterian+Church%2C+515+E+Kimball+Ave%2C+Hemet%2C+CA" target="_blank" rel="noopener noreferrer">Presbyterian Church, 515 E. Kimball Ave., Hemet, CA</a> <a class="event-link map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Presbyterian+Church%2C+515+E+Kimball+Ave%2C+Hemet%2C+CA" target="_blank" rel="noopener noreferrer">View Map</a></span>
+            <span>📍 <strong>Where:</strong> <a class="event-link" href="https://www.google.com/maps/search/?api=1&amp;query=Presbyterian+Church%2C+515+E+Kimball+Ave%2C+Hemet%2C+CA" target="_blank" rel="noopener noreferrer">Presbyterian Church, 515 E. Kimball Ave., Hemet, CA</a> <a class="event-link map-link" aria-label="View map: Presbyterian Church, 515 E Kimball Ave, Hemet, CA" href="https://www.google.com/maps/search/?api=1&amp;query=Presbyterian+Church%2C+515+E+Kimball+Ave%2C+Hemet%2C+CA" target="_blank" rel="noopener noreferrer">View Map</a></span>
             <span>💵 <strong>Cost:</strong> $10 suggested gratuity/donation</span>
             <span>☎️ <strong>Info:</strong> Byron – <a class="event-link" href="tel:+19514567270">(951) 456-7270</a> · Brian – <a class="event-link" href="tel:+19145520408">(914) 552-0408</a></span>
           </div>
@@ -639,7 +671,7 @@
           <div class="event-meta">
             <span>📅 <strong>Date:</strong> <time datetime="2026-10-30">Friday, October 30, 2026</time></span>
             <span>🕖 <strong>Time:</strong> <time datetime="2026-10-30T19:00:00-07:00">7:00 PM</time></span>
-            <span>📍 <strong>Where:</strong> <a class="event-link" href="https://www.google.com/maps/search/?api=1&amp;query=The+Arrid+Club%2C+120+S.+Harvard+St.%2C+Hemet%2C+CA+92543" target="_blank" rel="noopener noreferrer">The Arrid Club, 120 S. Harvard St., Hemet, CA 92543</a> <a class="event-link map-link" href="https://www.google.com/maps/search/?api=1&amp;query=The+Arrid+Club%2C+120+S.+Harvard+St.%2C+Hemet%2C+CA+92543" target="_blank" rel="noopener noreferrer">View Map</a></span>
+            <span>📍 <strong>Where:</strong> <a class="event-link" href="https://www.google.com/maps/search/?api=1&amp;query=The+Arrid+Club%2C+120+S.+Harvard+St.%2C+Hemet%2C+CA+92543" target="_blank" rel="noopener noreferrer">The Arrid Club, 120 S. Harvard St., Hemet, CA 92543</a> <a class="event-link map-link" aria-label="View map: The Arrid Club, 120 S. Harvard St., Hemet, CA 92543" href="https://www.google.com/maps/search/?api=1&amp;query=The+Arrid+Club%2C+120+S.+Harvard+St.%2C+Hemet%2C+CA+92543" target="_blank" rel="noopener noreferrer">View Map</a></span>
           </div>
           <div class="event-desc">DJ Willie Spinning the Tunes. Best Costume Prizes. Dress to Impress and Win!</div>
           <div class="event-actions">
@@ -663,7 +695,7 @@
         <h3 class="event-title">Ice Cream Social &amp; Tradition Play</h3>
         <div class="event-meta">
           <span>🕑 <strong>Time:</strong> 2:00 PM – 4:00 PM</span>
-          <span>📍 <strong>Where:</strong> <a class="event-link" href="https://www.google.com/maps/search/?api=1&amp;query=Unity+Valley+Church%2C+140+N+Buena+Vista+St%2C+Hemet%2C+CA+92543" target="_blank" rel="noopener noreferrer">Unity Valley Church, 140 N. Buena Vista St., Hemet, CA 92543</a> <a class="event-link map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Unity+Valley+Church%2C+140+N+Buena+Vista+St%2C+Hemet%2C+CA+92543" target="_blank" rel="noopener noreferrer">View Map</a></span>
+          <span>📍 <strong>Where:</strong> <a class="event-link" href="https://www.google.com/maps/search/?api=1&amp;query=Unity+Valley+Church%2C+140+N+Buena+Vista+St%2C+Hemet%2C+CA+92543" target="_blank" rel="noopener noreferrer">Unity Valley Church, 140 N. Buena Vista St., Hemet, CA 92543</a> <a class="event-link map-link" aria-label="View map: Unity Valley Church, 140 N Buena Vista St, Hemet, CA 92543" href="https://www.google.com/maps/search/?api=1&amp;query=Unity+Valley+Church%2C+140+N+Buena+Vista+St%2C+Hemet%2C+CA+92543" target="_blank" rel="noopener noreferrer">View Map</a></span>
           <span>☎️ <strong>Info:</strong> John – <a class="event-link" href="tel:+19092085580">(909) 208-5580</a></span>
         </div>
         <div class="event-desc">Presented by District 14. Join us for ice cream and a show!</div>
@@ -689,7 +721,7 @@
         <span class="event-tag">✅ Past Event</span>
         <h3 class="event-title">Secretary &amp; Treasurer Workshop</h3>
         <div class="event-meta">
-          <span>📍 <strong>Where:</strong> <a class="event-link" href="https://www.google.com/maps/search/?api=1&amp;query=120+S+Harvard+St%2C+Hemet%2C+CA" target="_blank" rel="noopener noreferrer">120 S. Harvard St., Hemet, CA</a> <a class="event-link map-link" href="https://www.google.com/maps/search/?api=1&amp;query=120+S+Harvard+St%2C+Hemet%2C+CA" target="_blank" rel="noopener noreferrer">View Map</a></span>
+          <span>📍 <strong>Where:</strong> <a class="event-link" href="https://www.google.com/maps/search/?api=1&amp;query=120+S+Harvard+St%2C+Hemet%2C+CA" target="_blank" rel="noopener noreferrer">120 S. Harvard St., Hemet, CA</a> <a class="event-link map-link" aria-label="View map: 120 S Harvard St, Hemet, CA" href="https://www.google.com/maps/search/?api=1&amp;query=120+S+Harvard+St%2C+Hemet%2C+CA" target="_blank" rel="noopener noreferrer">View Map</a></span>
           <span>🎤 <strong>Speakers:</strong> Craig S. – Treasurer (7 AM Meeting at Arrid Club) · Teddi P. – Secretary (District 17 Secretary)</span>
         </div>
         <div class="event-desc">Hosted by District 14. Members gathered for a Secretary &amp; Treasurer workshop featuring a Q&amp;A / Ask-It Basket &amp; snacks. Thanks to everyone who attended!</div>
@@ -706,7 +738,7 @@
         <span class="event-tag">✅ Past Event</span>
         <h3 class="event-title">Wake & Cake Pancake Fundraiser</h3>
         <div class="event-meta">
-          <span>📍 <strong>Where:</strong> <a class="event-link" href="https://www.google.com/maps/search/?api=1&amp;query=120+S+Harvard+St%2C+Hemet%2C+CA" target="_blank" rel="noopener noreferrer">120 S. Harvard Street, Hemet, CA</a> <a class="event-link map-link" href="https://www.google.com/maps/search/?api=1&amp;query=120+S+Harvard+St%2C+Hemet%2C+CA" target="_blank" rel="noopener noreferrer">View Map</a></span>
+          <span>📍 <strong>Where:</strong> <a class="event-link" href="https://www.google.com/maps/search/?api=1&amp;query=120+S+Harvard+St%2C+Hemet%2C+CA" target="_blank" rel="noopener noreferrer">120 S. Harvard Street, Hemet, CA</a> <a class="event-link map-link" aria-label="View map: 120 S Harvard St, Hemet, CA" href="https://www.google.com/maps/search/?api=1&amp;query=120+S+Harvard+St%2C+Hemet%2C+CA" target="_blank" rel="noopener noreferrer">View Map</a></span>
         </div>
         <div class="event-desc">Members and friends gathered for pancakes, sausage, scrambled eggs, and coffee in support of the building fund. Thanks to everyone who came out for the fellowship!</div>
       </div>
@@ -751,7 +783,7 @@
     <a class="facebook-action" href="https://www.facebook.com/groups/1225924959475339" target="_blank" rel="noopener noreferrer">Follow Us on Facebook</a>
   </div>
 
-</div>
+</main>
 
 <dialog class="flyer-dialog" id="event-flyer" aria-labelledby="flyer-dialog-title" aria-describedby="flyer-dialog-description" onclick="if (event.target === this) closeFlyer()">
   <h2 class="sr-only" id="flyer-dialog-title">AA Speaker Meeting and Barbecue Fellowship event flyer</h2>
