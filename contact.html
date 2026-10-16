@@ -18,7 +18,8 @@
 <meta property="og:image" content="https://arridclub.com/Assets/images/site/cinematic-arrid.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@300;400;600;700&display=optional" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@300;400;600;700&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@300;400;600;700&display=optional" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="css/style.css">
 <style>
   /* CONTACT-SPECIFIC STYLES */
@@ -261,7 +262,8 @@
   }
 </style>
 </head>
-<body>
+<body class="contact-page">
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <!-- NAV -->
 <nav class="site-nav">
@@ -277,7 +279,7 @@
       <li><a href="fellowship.html">Fellowship</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="guidelines.html">Guidelines</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -290,7 +292,7 @@
 </div>
 
 <!-- CONTENT -->
-<main class="contact-container">
+<main class="contact-container" id="main-content" tabindex="-1">
 
   <!-- Contact cards -->
   <section class="contact-grid" aria-label="Location and hours">
@@ -323,7 +325,7 @@
 
   <!-- Exterior photo -->
   <figure class="exterior-wrap">
-    <img src="Assets/images/site/cinematic-arrid.webp" alt="The Arrid Club exterior at night at 120 S. Harvard St. in Hemet, California" class="exterior-photo" width="1448" height="814">
+    <img src="Assets/images/site/cinematic-arrid.webp" loading="lazy" decoding="async" alt="The Arrid Club exterior at night at 120 S. Harvard St. in Hemet, California" class="exterior-photo" width="1448" height="814">
     <figcaption class="exterior-caption">
       <h2>You're in the Right Place</h2>
       <p>Walking into a new meeting can feel intimidating. We want your first visit to feel easier. When you arrive at 120 S. Harvard Street, you'll know you've found us.</p>
@@ -340,13 +342,11 @@
 
   <!-- Map -->
   <section class="map-wrap" aria-label="Map showing the Arrid Club location">
-    <iframe
-      src="https://www.google.com/maps?q=120+S+Harvard+St%2C+Hemet%2C+CA+92543&amp;output=embed"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      title="Arrid Club location map">
-    </iframe>
+    <div class="map-placeholder" id="map-placeholder">
+      <p><strong>The Arrid Club</strong><br>120 S. Harvard St · Hemet, CA 92543</p>
+      <button type="button" class="directions-btn" id="load-map" hidden>Load interactive map</button>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=120+S+Harvard+St%2C+Hemet%2C+CA+92543" target="_blank" rel="noopener noreferrer">Open directions in Google Maps ↗</a>
+    </div>
   </section>
 
   <!-- What to Expect carousel -->
@@ -356,13 +356,13 @@
     <div class="carousel-wrap" role="region" aria-roledescription="carousel" aria-label="Arrid Club meeting spaces">
       <div class="carousel-track" id="carouselTrack" aria-live="polite">
         <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 3">
-          <img src="Assets/images/meeting-spaces/downstairs-south-to-north-leader-secretary.webp" alt="Downstairs meeting room facing the leader and secretary tables" width="1086" height="1448">
+          <img src="Assets/images/meeting-spaces/downstairs-south-to-north-leader-secretary.webp" decoding="async" alt="Downstairs meeting room facing the leader and secretary tables" width="1086" height="1448" loading="lazy">
         </div>
         <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 3" aria-hidden="true">
-          <img src="Assets/images/meeting-spaces/upstairs-north-to-south-center.webp" alt="Upstairs meeting room" width="1086" height="1448" loading="lazy">
+          <img src="Assets/images/meeting-spaces/upstairs-north-to-south-center.webp" decoding="async" alt="Upstairs meeting room" width="1086" height="1448" loading="lazy">
         </div>
         <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 3" aria-hidden="true">
-          <img src="Assets/images/meeting-spaces/downstairs-brick-wall.webp" alt="Downstairs meeting room with brick wall and seating" width="1086" height="1448" loading="lazy">
+          <img src="Assets/images/meeting-spaces/downstairs-brick-wall.webp" decoding="async" alt="Downstairs meeting room with brick wall and seating" width="1086" height="1448" loading="lazy">
         </div>
       </div>
       <button type="button" class="carousel-btn carousel-prev" onclick="moveCarousel(-1)" aria-label="Previous meeting space">&#8249;</button>
@@ -402,6 +402,18 @@
 </footer>
 
 <script>
+  const mapButton = document.getElementById('load-map');
+  mapButton.hidden = false;
+  mapButton.addEventListener('click', () => {
+    const frame = document.createElement('iframe');
+    frame.title = 'Arrid Club location map';
+    frame.src = 'https://www.google.com/maps?q=120+S+Harvard+St%2C+Hemet%2C+CA+92543&output=embed';
+    frame.allowFullscreen = true;
+    frame.referrerPolicy = 'no-referrer-when-downgrade';
+    document.getElementById('map-placeholder').replaceWith(frame);
+    frame.focus();
+  }, { once: true });
+
   let current = 0;
   const total = 3;
   function updateCarousel() {
